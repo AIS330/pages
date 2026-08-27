@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>appiso</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+      "Malgun Gothic", "Noto Sans KR", sans-serif;
+    line-height: 1.7; max-width: 720px; margin: 0 auto; padding: 24px 20px 64px;
+    /* 한글은 기본값이면 어절 중간에서 끊긴다. */
+    word-break: keep-all; overflow-wrap: break-word;
+  }
+  /* 브랜드 문구. 문장 단위로 끊어 읽히게 문단을 나눠 둔다. */
+  .brand { margin: 0 0 10px; }
+  .brand-value {
+    margin: 0 0 8px; font-weight: 600; color: #00796b;
+  }
+  @media (prefers-color-scheme: dark) { .brand-value { color: #4db6ac; } }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.15em; margin-top: 2em; }
+  a { color: #00796b; }
+  @media (prefers-color-scheme: dark) { a { color: #4db6ac; } }
+  .app {
+    border: 1px solid rgba(128,128,128,.35); border-radius: 12px;
+    padding: 16px 20px; margin: 12px 0;
+  }
+  .app h3 { margin: 0 0 4px; font-size: 1.05em; }
+  .app p { margin: 0 0 8px; }
+</style>
+</head>
+<body>
+<h1><picture>
+  <source srcset="brand/logo_dark.png" media="(prefers-color-scheme: dark)">
+  <img src="brand/logo.png" alt="앱이소" style="height: 44px; width: auto; display: block;">
+</picture></h1>
+<p class="brand">앱이소에는 광고도, 인앱 결제도 없습니다.<br>
+오직 “얼마나 편한가”만 생각하며 만듭니다.</p>
+
+<p class="brand">많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만,<br>
+앱이소는 오로지 사용자 경험만 고민합니다.</p>
+
+<p class="brand-value">제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</p>
+
+<h2>앱</h2>
+<div class="app">
+  <h3>앱이소 가계부</h3>
+  <p>여러 장부를 나눠 쓰는 개인 수입·지출 기록 앱. 모든 데이터는 기기에만 저장됩니다.</p>
+  <a href="money/">소개</a> · <a href="money/privacy.html">개인정보처리방침</a>
+</div>
+
+<div class="app">
+  <h3>앱이소 베트남 여행</h3>
+  <p>베트남 여행용 환율 계산 · 택시 카드 · 베트남어 회화 · 그룹 정산 · 메모 앱. 모든 데이터는 기기에만 저장됩니다.</p>
+  <a href="TravelMate/">소개</a> · <a href="TravelMate/privacy.html">개인정보처리방침</a>
+</div>
+
+<h2>문의</h2>
+<p><a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a></p>
+</body>
+</html>
