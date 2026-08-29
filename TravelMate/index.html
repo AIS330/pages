@@ -29,6 +29,18 @@
     width: 100%; border-radius: 12px; border: 1px solid #e5e5ea; display: block;
   }
   .shots figcaption { font-size: .8rem; color: #6b6b70; text-align: center; margin-top: 6px; }
+  /* 스토어 버튼. 출시 전에는 회색 .store-badge를 보여주고, 공개되면 .store-btn 링크로 바꾼다
+     (바로 아래 HTML의 주석에 바꾸는 방법을 적어 뒀다). */
+  .store { text-align: center; margin: 0 0 28px; }
+  .store-btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    background: #0072d6; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .store-badge {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    border: 1px dashed #c9c9d0; color: #6b6b70; font-weight: 600;
+  }
+  .store-note { margin: 10px 0 0; font-size: .85rem; color: #6b6b70; }
 </style>
 </head>
 <body>
@@ -38,6 +50,17 @@
   <h1>앱이소 베트남 여행</h1>
   <p class="tagline">베트남 여행에 필요한 것들을 한 앱에</p>
 </header>
+
+<!-- 스토어에 공개되면: 아래 <span class="store-badge">…</span> 줄과 .store-note 문단을 지우고,
+     주석으로 감싸 둔 <a class="store-btn"> 링크를 밖으로 꺼내면 된다. 주소는 실제 패키지
+     이름(com.appiso.vietnammate)으로 이미 적혀 있다. -->
+<div class="store">
+  <span class="store-badge">구글 플레이 공개 준비 중</span>
+  <!--
+  <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.appiso.vietnammate">구글 플레이에서 받기</a>
+  -->
+  <p class="store-note">비공개 테스트 중입니다. 스토어에 공개되면 이 자리에서 바로 받을 수 있습니다.</p>
+</div>
 
 <div class="box">
   광고 없이 <strong>완전 무료</strong>입니다. 결제도, 로그인도, 계정도 없습니다.
