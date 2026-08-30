@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앱이소 영단어 초급 — 하루 20개씩 외우는 기초 영단어</title>
+<meta name="description" content="기초 영단어 600개를 암기 카드·퀴즈·문장 만들기로 학습. 광고 없이 완전 무료, 데이터는 폰에만 저장됩니다.">
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0 auto; padding: 40px 20px 64px; max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; color: #1b1b1f; background: #fff; word-break: keep-all;
+  }
+  header { text-align: center; margin-bottom: 40px; }
+  header img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font-size: 1.7rem; margin: 16px 0 4px; }
+  .tagline { color: #6b6b70; margin-top: 0; }
+  h2 { font-size: 1.15rem; margin-top: 40px; border-top: 1px solid #e5e5ea; padding-top: 20px; }
+  ul { padding-left: 20px; }
+  li { margin: 10px 0; }
+  a { color: #0b63c4; }
+  .box { background: #eef6ff; border-radius: 12px; padding: 16px 20px; margin: 24px 0; }
+  footer { margin-top: 48px; font-size: .85rem; color: #6b6b70; text-align: center; }
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; margin: 24px 0; }
+  .shots figure { margin: 0; flex: 0 0 auto; width: 190px; }
+  .shots img {
+    width: 100%; border-radius: 12px; border: 1px solid #e5e5ea; display: block;
+  }
+  .shots figcaption { font-size: .8rem; color: #6b6b70; text-align: center; margin-top: 6px; }
+  .store { text-align: center; margin: 0 0 28px; }
+  .store-btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    background: #0b63c4; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .store-badge {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    border: 1px dashed #c9c9d0; color: #6b6b70; font-weight: 600;
+  }
+  .store-note { margin: 10px 0 0; font-size: .85rem; color: #6b6b70; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="./icon-512.png" alt="앱이소 영단어 초급 아이콘">
+  <h1>앱이소 영단어 초급</h1>
+  <p class="tagline">하루 20개씩, 기초 영단어 600개</p>
+</header>
+
+<!-- 스토어에 공개되면: 아래 <span class="store-badge">…</span> 줄과 .store-note 문단을 지우고,
+     주석으로 감싸 둔 <a class="store-btn"> 링크를 밖으로 꺼내면 된다. -->
+<div class="store">
+  <span class="store-badge">구글 플레이 공개 준비 중</span>
+  <!--
+  <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.appiso.vocabasic">구글 플레이에서 받기</a>
+  -->
+  <p class="store-note">비공개 테스트 중입니다. 스토어에 공개되면 이 자리에서 바로 받을 수 있습니다.</p>
+</div>
+
+<div class="box">
+  광고 없이 <strong>완전 무료</strong>입니다. 결제도, 로그인도, 계정도 없습니다.
+  학습 기록은 모두 <strong>휴대폰 안에만</strong> 저장되고, 서버로 보내지 않습니다 —
+  서버 자체가 없거든요.
+</div>
+
+<h2>이런 걸 할 수 있어요</h2>
+<ul>
+  <li><strong>단어장</strong> — 기초 영단어 600개가 주제별로 Day 1~30에 나뉘어 있어요.
+    외운 단어를 표시하고, 헷갈리는 단어는 별표로 모아 복습해요.</li>
+  <li><strong>암기 카드</strong> — 카드를 탭해 앞뒤(단어 ↔ 뜻·예문)를 뒤집고,
+    '알아요' / '몰라요'로 진도를 기록해요. 스피커를 누르면 발음도 들을 수 있어요.</li>
+  <li><strong>퀴즈</strong> — 뜻 고르기·빈칸 채우기·끝 채우기 세 가지 방식으로 확인해요.</li>
+  <li><strong>문장 만들기</strong> — 흩어진 영어 단어 카드를 순서대로 눌러 문장을 완성해요.</li>
+  <li><strong>통계</strong> — 오늘/주간/월간/전체 학습량과 연속 학습일을 한눈에 봐요.</li>
+</ul>
+
+<h2>화면</h2>
+<div class="shots">
+  <figure><img src="./shots/wordbook.png" alt="전체 진행률과 Day별 목록이 보이는 단어장 화면" loading="lazy"><figcaption>단어장</figcaption></figure>
+  <figure><img src="./shots/memorize.png" alt="카드를 뒤집어 뜻과 예문을 보여주는 암기 카드 화면" loading="lazy"><figcaption>암기 카드</figcaption></figure>
+  <figure><img src="./shots/quiz.png" alt="뜻 고르기 퀴즈 화면" loading="lazy"><figcaption>퀴즈</figcaption></figure>
+  <figure><img src="./shots/dark.png" alt="다크 모드 단어장 화면" loading="lazy"><figcaption>다크 모드</figcaption></figure>
+</div>
+
+<h2>개인정보</h2>
+<p>
+  이 앱은 개인정보를 수집하지 않습니다. 학습 기록도 휴대폰 안에서만 처리하고 밖으로
+  보내지 않습니다. 자세한 내용은
+  <a href="./privacy.html">개인정보처리방침</a>을 확인해 주세요.
+</p>
+
+<h2>문의</h2>
+<p>
+  버그 제보나 넣었으면 하는 기능이 있으면
+  <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 알려주세요.
+  어떤 버전에서 생긴 일인지(옵션 화면에 적혀 있어요) 같이 적어주시면 도움이 됩니다.
+</p>
+
+<footer>
+  <!-- 앱이소 공통 소개 문구. 원문은 AIS330/AppisoCommon 저장소의 BRAND.md에 있고, 그쪽이 바뀌면 여기도 맞춘다. -->
+  <p>
+    앱이소에는 광고도, 인앱 결제도 없습니다. 오직 "얼마나 편한가"만 생각하며 만듭니다.
+    많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만, 앱이소는 오로지 사용자 경험만 고민합니다.
+    <strong>제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</strong>
+  </p>
+  <p>
+    <a href="../">앱이소의 다른 앱 보기</a> · appisoLabs@gmail.com
+  </p>
+</footer>
+
+</body>
+</html>

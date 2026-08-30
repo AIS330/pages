@@ -29,7 +29,7 @@
 
 <div class="box">
   <strong>요약 —</strong> 앱이소 학생 시간표는 개인정보를 <strong>수집하지 않습니다</strong>.
-  계정도, 로그인도, 광고도, 분석 도구도 없습니다. 짜 둔 시간표와 학습 기록은 모두 사용자의
+  계정도, 로그인도, 광고도, 분석 도구도 없습니다. 짜 둔 시간표와 숙제·학습 기록은 모두 사용자의
   휴대폰 안에만 저장되며 개발자를 포함한 누구에게도 전송되지 않습니다.
 </div>
 
@@ -42,14 +42,14 @@
 
 <h2>2. 앱에 저장되는 내용</h2>
 <p>
-  사용자가 만든 시간표(시간표 이름, 과목 이름, 요일·시간, 학교/학원/혼자 공부 구분),
-  완료 체크 기록, 화면 테마와 입력 기본값은 안드로이드의 앱 전용 저장 공간
-  (<code>shared_preferences</code>)에 <strong>휴대폰 안에만</strong> 저장됩니다.
-  개발자는 이 내용을 볼 수 없습니다.
+  사용자가 만든 시간표(시간표 이름, 과목 이름과 이모지, 요일·시간, 학교/학원/혼자 공부 구분,
+  준비물 메모), 사용자가 적은 숙제 메모, 완료 체크 기록, 화면 테마·앱 색과 입력 기본값은
+  안드로이드의 앱 전용 저장 공간 (<code>shared_preferences</code>)에
+  <strong>휴대폰 안에만</strong> 저장됩니다. 개발자는 이 내용을 볼 수 없습니다.
 </p>
 <p>
   이 앱은 안드로이드의 <strong>자동 백업을 켜 둔 상태</strong>입니다. 기기에서 백업을 켜 두셨다면
-  짜 둔 시간표와 완료 기록이 <strong>사용자 본인의 구글 계정 백업</strong>에 함께 담길 수 있습니다.
+  짜 둔 시간표와 숙제·완료 기록이 <strong>사용자 본인의 구글 계정 백업</strong>에 함께 담길 수 있습니다.
   폰을 바꿔도 시간표가 통째로 사라지지 않도록 하기 위한 안드로이드 기능이며, 백업은 사용자 본인의
   계정에만 저장되고 개발자에게는 전달되지 않습니다. 백업을 원치 않으시면 기기 설정에서 이 앱의
   백업을 끄시면 됩니다.
@@ -61,8 +61,9 @@
   없으며, 앱이 스스로 인터넷에 접속하는 일도 없습니다. 다음 세 가지만 사용자가 직접 눌렀을 때 일어납니다.
 </p>
 <ul>
-  <li><strong>시간표를 글자로 공유</strong> — 공유 버튼을 누르면 시간표가 글자로 바뀌어,
-    <strong>사용자가 직접 고른 앱</strong>(메신저·메일 등)으로만 전달됩니다. 개발자에게는 오지 않습니다.</li>
+  <li><strong>시간표를 글자로 공유</strong> — 공유 버튼을 누르면 시간표(과목·시간과 준비물 메모)가
+    글자로 바뀌어, <strong>사용자가 직접 고른 앱</strong>(메신저·메일 등)으로만 전달됩니다.
+    숙제 메모는 담기지 않고, 개발자에게는 오지 않습니다.</li>
   <li><strong>시간표를 그림으로 공유</strong> — 화면에 보이는 격자를 기기 안에서 PNG 그림으로 만들어,
     마찬가지로 사용자가 고른 앱으로만 전달합니다. 그림은 서버에 올라가지 않습니다.</li>
   <li><strong>개인정보처리방침 열기 · 문의 메일</strong> — 도움말의 링크를 누르면 기기의 브라우저로 이 페이지가
@@ -94,8 +95,8 @@
 <h2>English summary</h2>
 <p>
   Appiso Student Timetable (앱이소 학생 시간표) does <strong>not collect any personal data</strong>. There is no account,
-  no login, no advertising, and no analytics. The timetables you build and your completion records are stored only in
-  the app's private storage on your own device. If Android backup is enabled on your device, that data may be included
+  no login, no advertising, and no analytics. The timetables you build, the homework and supplies notes you write, and
+  your completion records are stored only in the app's private storage on your own device. If Android backup is enabled on your device, that data may be included
   in your own Google account backup; it never reaches the developer. Sharing a timetable — as text or as a PNG image
   rendered on the device — passes it only to the app you choose yourself. The app works fully offline and requests
   no permissions.
