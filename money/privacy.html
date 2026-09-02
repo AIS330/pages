@@ -3,68 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>앱이소 가계부 개인정보처리방침</title>
+<title>개인정보처리방침 · 앱이소 가계부</title>
 <style>
-  :root { color-scheme: light dark; }
+  :root { color-scheme: light; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-      "Malgun Gothic", "Noto Sans KR", sans-serif;
-    line-height: 1.7; max-width: 720px; margin: 0 auto; padding: 24px 20px 64px;
-    /* 한글은 기본값이면 어절 중간에서 끊긴다. */
-    word-break: keep-all; overflow-wrap: break-word;
+    margin: 0 auto; padding: 32px 20px 64px; max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; color: #1b1b1f; background: #fff; word-break: keep-all;
   }
-  h1 { font-size: 1.6em; }
-  h2 { font-size: 1.15em; margin-top: 2em; }
-  p.meta { color: gray; font-size: 0.9em; }
-  a { color: #00796b; }
-  @media (prefers-color-scheme: dark) { a { color: #4db6ac; } }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  h2 { font-size: 1.15rem; margin-top: 36px; border-top: 1px solid #e5e5ea; padding-top: 20px; }
+  .meta { color: #6b6b70; font-size: .9rem; margin-top: 0; }
+  ul { padding-left: 20px; }
+  li { margin: 6px 0; }
+  a { color: #0d7a54; }
+  .box { background: #f2faf6; border-radius: 12px; padding: 16px 20px; margin: 24px 0; }
+  footer { margin-top: 48px; font-size: .85rem; color: #6b6b70; }
+  code { background: #f1f1f4; padding: 1px 5px; border-radius: 4px; font-size: .9em; }
 </style>
 </head>
 <body>
-<h1>앱이소 가계부 개인정보처리방침</h1>
-<p class="meta">시행일: 2026-08-23</p>
 
-<p>「앱이소 가계부」(패키지명 <code>com.appiso.money</code>, 이하 "앱")는 서버 없이 동작하는
-오프라인 가계부 앱입니다. 개발자는 이용자의 개인정보를 수집하지 않습니다.</p>
+<h1>앱이소 가계부 개인정보처리방침</h1>
+<p class="meta">시행일: 2026년 8월 23일 · 최종 수정일: 2026년 9월 3일</p>
+
+<div class="box">
+  <strong>요약 —</strong> 앱이소 가계부(패키지명 <code>com.appiso.money</code>)는 개인정보를
+  <strong>수집하지 않습니다</strong>. 계정도, 로그인도, 광고도, 분석 도구도, 서버도 없습니다.
+  기록한 거래와 카드 승인 문자는 모두 사용자의 기기 안에서만 처리되고, 개발자를 포함한
+  누구에게도 전송되지 않습니다.
+</div>
 
 <h2>1. 수집하는 개인정보</h2>
-<p><strong>없습니다.</strong> 앱에는 회원가입·로그인이 없고, 분석·광고·크래시 리포팅
-SDK를 사용하지 않으며, 이용자의 어떤 데이터도 개발자나 제3자의 서버로 전송하지
-않습니다.</p>
+<ul>
+  <li>이 앱은 이름, 이메일, 전화번호, 위치, 연락처 등 <strong>어떤 개인정보도 수집하지 않습니다.</strong></li>
+  <li>회원가입·로그인 기능이 없으며 사용자를 식별하지 않습니다.</li>
+  <li>분석·광고·크래시 리포팅 SDK를 사용하지 않고, 이용자의 어떤 데이터도 개발자나 제3자의 서버로
+    전송하지 않습니다.</li>
+</ul>
 
 <h2>2. 기기에만 저장되는 데이터</h2>
-<p>이용자가 입력한 거래 내역, 장부, 카테고리, 계좌 정보는 <strong>이용자 기기의 앱
-전용 저장 공간</strong>(로컬 CSV/JSON 파일)에만 저장됩니다. 개발자는 이 데이터에
-접근할 수 없습니다. 앱을 삭제하면 함께 삭제되며, Android 자동 백업 대상에서도
-제외되어 있습니다(allowBackup=false).</p>
+<p>
+  이용자가 입력한 거래 내역, 장부, 카테고리, 계좌 정보는 <strong>이용자 기기의 앱 전용 저장 공간</strong>
+  (로컬 CSV/JSON 파일)에만 저장됩니다. 개발자는 이 데이터에 접근할 수 없습니다. 앱을 삭제하면
+  함께 삭제되며, 안드로이드 자동 백업 대상에서도 제외되어 있습니다(<code>allowBackup=false</code>) —
+  금융 기록이 이용자 모르게 클라우드로 올라가지 않도록 한 것입니다.
+</p>
+<p>
+  PC(윈도우) 버전은 사용자 계정의 앱 데이터 폴더(<code>AppData</code>)에 저장하며, 문서 폴더나
+  클라우드 동기화 폴더에는 두지 않습니다.
+</p>
 
-<h2>3. SMS 권한 (Android, 선택 기능)</h2>
-<p>카드 승인 문자를 거래로 자동 등록하는 <strong>선택 기능</strong>을 위해 SMS 수신
-권한(RECEIVE_SMS)을 사용합니다.</p>
+<h2>3. SMS 권한 (안드로이드, 선택 기능)</h2>
+<p>
+  카드 승인 문자를 거래로 자동 등록하는 <strong>선택 기능</strong>을 위해 SMS 수신 권한
+  (<code>RECEIVE_SMS</code>)을 사용합니다.
+</p>
 <ul>
-  <li>기능은 기본적으로 꺼져 있으며, 이용자가 설정에서 직접 켤 때만 권한을
-    요청합니다.</li>
-  <li>앱은 문자 보관함(받은 문자함)을 읽지 않습니다. 기능이 켜진 동안 <strong>새로
-    수신되는 문자</strong>만 확인하여, 이용자가 설정한 필터에 맞는 카드 승인 문자를
-    기기 안에서 분석해 거래로 기록합니다.</li>
+  <li>기능은 기본적으로 꺼져 있으며, 이용자가 설정에서 직접 켤 때만 권한을 요청합니다.</li>
+  <li>앱은 문자 보관함(받은 문자함)을 읽지 않습니다(<code>READ_SMS</code> 권한 없음). 기능이 켜진
+    동안 <strong>새로 수신되는 문자</strong>만 확인하여, 이용자가 설정한 발신자·키워드 필터에 맞는
+    카드 승인 문자만 기기 안에서 분석해 거래로 기록합니다. 필터에 맞지 않는 문자는 저장하지 않습니다.</li>
   <li>문자 내용은 어떤 경우에도 기기 밖으로 전송되지 않습니다.</li>
-  <li>기능을 끄면 문자 확인이 즉시 중단되며, 앱에 보관된 문자 기록은 앱 안에서
-    삭제할 수 있습니다.</li>
+  <li>모든 장부에서 기능을 끄면 문자 확인이 즉시 중단되고, 아직 처리하지 않은 문자도 함께
+    삭제됩니다. 앱에 보관된 미인식 문자 기록은 앱 안에서 삭제할 수 있습니다.</li>
 </ul>
 
 <h2>4. 네트워크 사용</h2>
-<p>외화 결제 문자를 원화로 환산할 때 환율 조회를 위해 공개 환율 API
-(open.er-api.com)에 접속합니다. 이때 전송되는 정보는 <strong>통화 코드(예:
-USD)뿐</strong>이며, 금액·가맹점·기기 정보 등 개인정보는 포함되지 않습니다.</p>
+<p>
+  외화 결제 문자를 원화로 환산할 때 환율 조회를 위해 공개 환율 API(<code>open.er-api.com</code>)에
+  접속합니다. 이때 전송되는 정보는 <strong>통화 코드(예: USD)뿐</strong>이며, 금액·가맹점·기기 정보 등
+  개인정보는 포함되지 않습니다. 그 밖에 앱이 스스로 인터넷에 접속하는 일은 없습니다. 도움말이나
+  설정에서 <strong>개인정보처리방침 링크</strong>를 누르면 기기의 브라우저로 이 페이지가 열립니다 —
+  이용자가 직접 눌렀을 때만 일어납니다.
+</p>
 
 <h2>5. 백업 파일</h2>
-<p>백업은 이용자가 직접 실행할 때만 만들어지며, 이용자가 지정한 위치에 zip 파일로
-저장됩니다. 백업 시 비밀번호를 설정하면 파일이 암호화되며(선택), 비밀번호는
-저장되지 않습니다. 개발자는 백업 파일에 접근할 수 없습니다.</p>
+<p>
+  백업은 이용자가 직접 실행할 때만 만들어지며, 이용자가 지정한 위치에 zip 파일로 저장됩니다.
+  백업 시 비밀번호를 설정하면 파일이 암호화되며(선택), 비밀번호는 저장되지 않습니다.
+  개발자는 백업 파일에 접근할 수 없습니다. 클라우드 계정과 직접 연동하는 기능은 없습니다.
+</p>
 
-<h2>6. 문의</h2>
-<p>개인정보 관련 문의: <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a></p>
+<h2>6. 아동의 개인정보</h2>
+<p>
+  이 앱은 연령과 관계없이 <strong>어떤 사용자의 개인정보도 수집하지 않습니다.</strong>
+  이름이나 나이를 입력받는 곳도 없습니다.
+</p>
 
-<p>본 방침이 변경되면 이 페이지에 게시합니다.</p>
+<h2>7. 방침 변경</h2>
+<p>
+  방침이 바뀌면 이 페이지를 수정하고 위의 최종 수정일을 갱신합니다. 중요한 변경이 있으면
+  앱 업데이트 설명에도 적습니다.
+</p>
+
+<h2>8. 문의</h2>
+<p>
+  개인정보 처리에 관한 문의는 <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 보내주세요.
+</p>
+
+<h2>English summary</h2>
+<p>
+  Appiso Money (앱이소 가계부, package <code>com.appiso.money</code>) does <strong>not collect any personal
+  data</strong>. There is no account, no login, no advertising, no analytics, and no server. Your ledgers,
+  transactions and accounts are stored only in the app's private storage on your own device and are excluded
+  from Android auto backup. The optional card-SMS feature uses <code>RECEIVE_SMS</code> only (never
+  <code>READ_SMS</code>): while enabled, newly received messages matching your own sender/keyword filters are
+  parsed on-device into expense entries; no message content ever leaves the device, and turning the feature off
+  stops capture immediately and discards any unprocessed messages. The only network request is an exchange-rate
+  lookup that sends a currency code (e.g. USD) and nothing else. Backups are zip files you create yourself
+  (optionally encrypted with a password that is never stored). Contact:
+  <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a>
+</p>
+
+<footer>
+  앱이소 가계부 · 개발자 문의 appisoLabs@gmail.com · <a href="./">앱 소개</a> · <a href="../">앱이소 소개로 돌아가기</a>
+</footer>
+
 </body>
 </html>

@@ -25,7 +25,7 @@
 <body>
 
 <h1>앱이소 일기장 개인정보처리방침</h1>
-<p class="meta">최종 수정일: 2026년 9월 1일</p>
+<p class="meta">최종 수정일: 2026년 9월 2일</p>
 
 <div class="box">
   <strong>요약 —</strong> 앱이소 일기장은 개인정보를 <strong>수집하지 않습니다</strong>.
@@ -42,15 +42,21 @@
 
 <h2>2. 앱에 저장되는 내용</h2>
 <p>
-  사용자가 적은 일기와 화면 설정은 안드로이드의 앱 전용 저장 공간에
-  <strong>휴대폰 안에만</strong> 저장됩니다. 로그인이 없으므로 이 데이터가 아래에서 설명하는
-  구글 자동 백업 외의 다른 어떤 곳에도 저장되지 않으며, 개발자는 이 내용을 볼 수 없습니다.
+  사용자가 적은 일기는 안드로이드의 앱 전용 저장 공간에 <strong>암호화된 파일 하나</strong>로,
+  화면 설정은 앱 전용 설정 저장소에 <strong>휴대폰 안에만</strong> 저장됩니다. 로그인이 없으므로
+  이 데이터가 아래에서 설명하는 구글 자동 백업 외의 다른 어떤 곳에도 저장되지 않으며,
+  개발자는 이 내용을 볼 수 없습니다.
 </p>
 <p>
   <strong>일기는 항상 암호화되어 저장됩니다.</strong> 비밀번호를 설정하면 암호화 키가
-  그 비밀번호에서 만들어지므로, 비밀번호를 모르면 저장된 일기를 읽을 수 없습니다.
+  그 비밀번호에서 만들어지므로(PBKDF2 방식의 키 파생), 비밀번호를 모르면 저장된 일기를 읽을 수 없습니다.
   비밀번호 원문은 저장하지 않으며, 서버가 없어 <strong>비밀번호를 잊으면 개발자도 일기를
-  되찾아 드릴 방법이 없습니다.</strong>
+  되찾아 드릴 방법이 없습니다.</strong> 비밀번호는 6자 이상이어야 합니다.
+</p>
+<p>
+  저장된 일기 파일을 읽을 수 없게 되면(손상 등) 앱은 그 파일을 지우거나 덮어쓰지 않고
+  같은 폴더에 다른 이름으로 보관한 뒤 사용자에게 알립니다. 또한 일기 화면은
+  스크린샷·화면 녹화·최근 앱 미리보기에 담기지 않도록 보호됩니다.
 </p>
 <p>
   이 앱은 안드로이드의 <strong>자동 백업을 켜 둔 상태</strong>입니다. 기기에서 백업을 켜 두셨다면
@@ -75,7 +81,10 @@
   <li>위치·연락처·사진·마이크 등에 접근하지 않습니다.</li>
   <li><strong>생체 인증(지문·얼굴) 권한</strong> 하나만 사용합니다 — 잠긴 일기장을 비밀번호 대신
     지문으로 여는 선택 기능을 위해서입니다. 인증은 <strong>안드로이드 시스템이 기기 안에서</strong>
-    처리하며, 앱은 지문·얼굴 데이터를 볼 수 없고 성공 여부만 전달받습니다. 옵션에서 끌 수 있습니다.</li>
+    처리하며, 앱은 지문·얼굴 데이터를 볼 수 없고 성공 여부만 전달받습니다.
+    이 기능은 <strong>기본적으로 꺼져 있고</strong>, 지문을 지원하는 기기에서 옵션으로 켜고 끌 수 있습니다.
+    켜면 이 기기 안에만 남는 잠금 해제용 키 파일이 만들어지며, 이 파일은 구글 백업과 기기 이전에서
+    제외됩니다 — 그래서 새 기기에서는 반드시 비밀번호가 필요합니다.</li>
 </ul>
 
 <h2>5. 아동의 개인정보</h2>
@@ -102,9 +111,11 @@
   your entries cannot be read without it; the developer cannot recover a forgotten password. If Android backup
   is enabled on your device, your (encrypted) data may be included in your own Google account backup and can be
   restored on a new device signed in to the same account; it never reaches the developer, and a password is
-  still required to open restored entries. The app works fully offline. The only permission it uses is
-  biometric authentication (an optional way to unlock the diary); authentication happens inside the Android
-  system and the app never sees your biometric data.
+  still required to open restored entries. If the stored file ever becomes unreadable, the app keeps it aside
+  under another name instead of overwriting it and tells you. The app works fully offline. The only permission
+  it uses is biometric authentication (an optional way to unlock the diary, off by default); authentication
+  happens inside the Android system and the app never sees your biometric data. The screen is protected from
+  screenshots, screen recording and the recent-apps preview.
   Contact: <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a>
 </p>
 
