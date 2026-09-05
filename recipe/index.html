@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앱이소 레시피 — 고쳐 가며 완성하는 요리 노트</title>
+<meta name="description" content="레시피를 따라 하고, 맛을 평가하고, 고쳐서 새 버전으로 남기는 요리 노트. 따라하기 타이머, 개선 제안, 버전 비교까지 광고 없이 무료. 레시피와 기록은 폰에 저장됩니다.">
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0 auto; padding: 40px 20px 64px; max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; color: #1b1b1f; background: #fff; word-break: keep-all;
+  }
+  header { text-align: center; margin-bottom: 40px; }
+  header img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font-size: 1.7rem; margin: 16px 0 4px; }
+  .tagline { color: #6b6b70; margin-top: 0; }
+  h2 { font-size: 1.15rem; margin-top: 40px; border-top: 1px solid #e5e5ea; padding-top: 20px; }
+  ul { padding-left: 20px; }
+  li { margin: 10px 0; }
+  a { color: #00796b; }
+  .box { background: #eaf7f1; border-radius: 12px; padding: 16px 20px; margin: 24px 0; }
+  footer { margin-top: 48px; font-size: .85rem; color: #6b6b70; text-align: center; }
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; margin: 24px 0; }
+  .shots figure { margin: 0; flex: 0 0 auto; width: 190px; }
+  .shots img {
+    width: 100%; border-radius: 12px; border: 1px solid #e5e5ea; display: block;
+  }
+  .shots figcaption { font-size: .8rem; color: #6b6b70; text-align: center; margin-top: 6px; }
+  .store { text-align: center; margin: 0 0 28px; }
+  .store-btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    background: #00796b; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .store-badge {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    border: 1px dashed #c9c9d0; color: #6b6b70; font-weight: 600;
+  }
+  .store-note { margin: 10px 0 0; font-size: .85rem; color: #6b6b70; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="./icon-512.png" alt="앱이소 레시피 아이콘">
+  <h1>앱이소 레시피</h1>
+  <p class="tagline">따라 하고, 평가하고, 고쳐서 완성하는 요리 노트</p>
+</header>
+
+<!-- 스토어에 공개되면: 아래 <span class="store-badge">…</span> 줄과 .store-note 문단을 지우고,
+     주석으로 감싸 둔 <a class="store-btn"> 링크를 밖으로 꺼내면 된다. -->
+<div class="store">
+  <span class="store-badge">구글 플레이 공개 준비 중</span>
+  <!--
+  <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.appiso.recipe">구글 플레이에서 받기</a>
+  -->
+  <p class="store-note">비공개 테스트 중입니다. 스토어에 공개되면 이 자리에서 바로 받을 수 있습니다.</p>
+</div>
+
+<div class="box">
+  광고 없이 <strong>완전 무료</strong>입니다. 결제도, 로그인도, 계정도 없습니다.
+  레시피와 조리 기록, 사진은 모두 <strong>휴대폰 안에</strong> 저장되고, 서버로 보내지 않습니다 —
+  서버 자체가 없거든요.
+</div>
+
+<h2>이런 걸 할 수 있어요</h2>
+<ul>
+  <li><strong>고쳐 가며 완성하는 레시피</strong> — 따라 해 보고, 맛을 평가하고, 평가에 맞춰
+    양을 조절한 새 버전으로 저장해요. 버전마다 별점이 남아서 가장 만족스러웠던 버전에
+    [최고 만족도] 배지가 붙어요. 이전 버전은 지워지지 않아요.</li>
+  <li><strong>따라하기</strong> — 지금 단계를 큰 글씨로 하나씩, 그 단계에 필요한 재료와 양이
+    함께 나와요. 타이머는 여러 개를 동시에 돌릴 수 있고, 요리하는 동안 화면이 꺼지지 않아요.
+    찍은 사진은 그 단계에 담겨요.</li>
+  <li><strong>맛 평가와 개선 제안</strong> — 짠맛·단맛·매운맛은 [부족 ← 적당 → 과함]
+    사이에서, 식감·플레이팅·전체 만족도는 별점으로 남겨요. 평가를 저장하면
+    [소금 1작은술 → 0.7작은술]처럼 고칠 곳을 제안하고, [적용]하면 다음 버전 밑그림이 돼요.
+    제안은 폰 안에서 규칙으로 계산해요.</li>
+  <li><strong>인분 바꾸기와 버전 비교</strong> — 인분을 바꾸면 재료 양이 다시 계산돼요.
+    두 버전을 나란히 놓고 달라진 재료와 단계를 [늘림]·[줄임]·[추가]·[뺌] 딱지로 봐요.</li>
+  <li><strong>공유</strong> — 텍스트로, 레시피를 통째로 담은 .recipe 파일로, 완성 사진과
+    시도 횟수를 담은 자랑 카드로 보내요.</li>
+  <li><strong>백업과 복원</strong> — 레시피·버전·조리 기록·사진을 파일 하나로 내보내고
+    되돌려요. 사진은 원본 그대로예요.</li>
+  <li><strong>샘플 26개</strong> — 찌개·볶음·면처럼 간이 결과를 좌우하는 요리로 채웠어요.
+    하나를 내 레시피로 복제해 바로 시작할 수 있어요.</li>
+</ul>
+
+<h2>화면</h2>
+<div class="shots">
+  <figure><img src="./shots/home.png" alt="내 레시피 목록 — 버전과 만족도 별점이 한 줄에 보이는 홈 화면" loading="lazy"><figcaption>홈</figcaption></figure>
+  <figure><img src="./shots/versions.png" alt="맛 평가와 버전 기록이 쌓인 레시피 상세 화면" loading="lazy"><figcaption>버전 기록</figcaption></figure>
+  <figure><img src="./shots/cooking.png" alt="단계 하나를 크게 보여 주고 타이머가 도는 따라하기 화면" loading="lazy"><figcaption>따라하기</figcaption></figure>
+  <figure><img src="./shots/suggestion.png" alt="평가에 맞춰 재료 양을 바꿔 보라고 제안하는 개선 제안 화면" loading="lazy"><figcaption>개선 제안</figcaption></figure>
+  <figure><img src="./shots/dark.png" alt="어두운 테마의 홈 화면" loading="lazy"><figcaption>어두운 테마</figcaption></figure>
+</div>
+
+<h2>사진과 카메라</h2>
+<p>
+  카메라는 조리 단계나 완성 요리를 찍으려고 앱 안의 카메라 버튼을 눌렀을 때만 열립니다.
+  찍은 사진은 앱 전용 저장 공간에만 보관되고, 사진첩을 읽어 들이지 않습니다.
+  폰의 구글 자동 백업에는 용량 한도 때문에 사진이 빠지니, 사진까지 옮기려면
+  [옵션 &gt; 백업과 복원]으로 백업 파일을 만들어 두세요.
+</p>
+
+<h2>개인정보</h2>
+<p>
+  이 앱은 개인정보를 수집하지 않습니다. 레시피와 기록도 휴대폰 안에서만 처리하고 밖으로
+  보내지 않습니다. 자세한 내용은
+  <a href="./privacy.html">개인정보처리방침</a>을 확인해 주세요.
+</p>
+
+<h2>문의</h2>
+<p>
+  버그 제보나 넣었으면 하는 기능이 있으면
+  <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 알려주세요.
+  어떤 버전에서 생긴 일인지(옵션 화면에 적혀 있어요) 같이 적어주시면 도움이 됩니다.
+</p>
+
+<footer>
+  <!-- 앱이소 공통 소개 문구. 원문은 AIS330/AppisoCommon 저장소의 BRAND.md에 있고, 그쪽이 바뀌면 여기도 맞춘다. -->
+  <p>
+    앱이소에는 광고도, 인앱 결제도 없습니다. 오직 "얼마나 편한가"만 생각하며 만듭니다.
+    많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만, 앱이소는 오로지 사용자 경험만 고민합니다.
+    <strong>제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</strong>
+  </p>
+  <p>
+    <a href="../">앱이소의 다른 앱 보기</a> · appisoLabs@gmail.com
+  </p>
+</footer>
+
+</body>
+</html>
