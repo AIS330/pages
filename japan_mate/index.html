@@ -46,7 +46,7 @@
 <body>
 
 <header>
-  <!-- 아이콘(icon-512.png)은 출시 준비 때 만든다(NEW-APP.md §10). 그때까지는 그림 없이 이름만 보인다. -->
+  <!-- 아이콘은 store/play-store-icon-512.png의 사본이다(docs/icon-512.png). 아이콘을 바꾸면 같이 갱신한다. -->
   <img src="./icon-512.png" alt="앱이소 일본 여행 아이콘" onerror="this.style.display='none'">
   <h1>앱이소 일본 여행</h1>
   <p class="tagline">일본 여행에 필요한 것들을 한 앱에</p>
@@ -81,7 +81,18 @@
   <li><strong>여행 메모</strong> — 객실 번호, 예약 번호, 와이파이 비밀번호, 항공편을 한곳에.</li>
 </ul>
 
-<!-- 스크린샷(shots/*.png)은 출시 준비 때 골든 테스트로 만들어 넣는다(docs/ARCHITECTURE.md). -->
+<h2>앱 안에서는 이렇게 보여요</h2>
+<!-- 스크린샷은 store/screenshots/의 사본이다. 화면이 바뀌면 골든 테스트로 다시 만들어
+     (flutter test --update-goldens tool/screenshots/store_screenshot_test.dart) 여기로 복사한다. -->
+<section class="shots">
+<figure><img src="shots/01-currency.png" alt="엔·원·달러가 나란히 계산된 환율 화면" loading="lazy"><figcaption>엔·원·달러를 한눈에.</figcaption></figure>
+<figure><img src="shots/02-taxi-list.png" alt="지역 탭과 장소 목록이 보이는 택시 카드 화면" loading="lazy"><figcaption>지역별 장소 목록.</figcaption></figure>
+<figure><img src="shots/03-taxi-fullscreen.png" alt="일본어 주소가 크게 표시된 기사님용 전체 화면" loading="lazy"><figcaption>기사님께 그대로 보여주세요.</figcaption></figure>
+<figure><img src="shots/04-phrases.png" alt="상황별 일본어 문장과 한글 발음 목록" loading="lazy"><figcaption>상황별 회화와 한글 발음.</figcaption></figure>
+<figure><img src="shots/05-split.png" alt="그룹별 지출과 송금 안내가 보이는 정산 화면" loading="lazy"><figcaption>누가 누구에게 얼마를.</figcaption></figure>
+<figure><img src="shots/06-memo.png" alt="여행 준비 양식이 담긴 메모 화면" loading="lazy"><figcaption>항공·숙소·준비물 메모.</figcaption></figure>
+</section>
+<p>화면에 보이는 숙소·지출·메모는 기능을 설명하기 위한 예시입니다.</p>
 
 <h2>개인정보</h2>
 <p>
