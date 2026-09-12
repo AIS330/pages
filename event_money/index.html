@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앱이소 경조사 — 낸 경조금·받은 경조금 기록장</title>
+<meta name="description" content="낸 경조금과 받은 경조금을 한곳에 적어 두고 사람별로 찾아봐요. 월별·종류별 분석과 비밀번호 잠금까지, 광고 없이 완전 무료. 인터넷 없이 동작합니다.">
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0 auto; padding: 40px 20px 64px; max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; color: #1b1b1f; background: #fff; word-break: keep-all;
+  }
+  header { text-align: center; margin-bottom: 40px; }
+  header img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font-size: 1.7rem; margin: 16px 0 4px; }
+  .tagline { color: #6b6b70; margin-top: 0; }
+  h2 { font-size: 1.15rem; margin-top: 40px; border-top: 1px solid #e5e5ea; padding-top: 20px; }
+  ul { padding-left: 20px; }
+  li { margin: 10px 0; }
+  a { color: #00796b; }
+  .box { background: #f2faf6; border-radius: 12px; padding: 16px 20px; margin: 24px 0; }
+  footer { margin-top: 48px; font-size: .85rem; color: #6b6b70; text-align: center; }
+  /* 스크린샷은 좁은 화면에서 옆으로 밀어 볼 수 있게 한 줄로 둔다. */
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; margin: 24px 0; }
+  .shots figure { margin: 0; flex: 0 0 auto; width: 190px; }
+  .shots img {
+    width: 100%; border-radius: 12px; border: 1px solid #e5e5ea; display: block;
+  }
+  .shots figcaption { font-size: .8rem; color: #6b6b70; text-align: center; margin-top: 6px; }
+  /* 스토어 버튼. 출시 전에는 회색 .store-badge를 보여주고, 공개되면 .store-btn 링크로 바꾼다
+     (바로 아래 HTML의 주석에 바꾸는 방법을 적어 뒀다). */
+  .store { text-align: center; margin: 0 0 28px; }
+  .store-btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    background: #00796b; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .store-badge {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    border: 1px dashed #c9c9d0; color: #6b6b70; font-weight: 600;
+  }
+  .store-note { margin: 10px 0 0; font-size: .85rem; color: #6b6b70; }
+</style>
+</head>
+<body>
+
+<header>
+  <!-- 아이콘은 store/play-store-icon-512.png의 사본이다(tool/publish_pages.sh가 icon-512.png로 복사한다).
+       아이콘을 바꾸면 그 스크립트를 다시 돌린다. -->
+  <img src="./icon-512.png" alt="앱이소 경조사 아이콘" onerror="this.style.display='none'">
+  <h1>앱이소 경조사</h1>
+  <p class="tagline">주고받은 경조금을 한곳에</p>
+</header>
+
+<!-- 스토어에 공개되면: 아래 <span class="store-badge">…</span> 줄과 .store-note 문단을 지우고,
+     주석으로 감싸 둔 <a class="store-btn"> 링크를 밖으로 꺼내면 된다. 주소는 실제 패키지
+     이름(com.appiso.eventmoney)으로 이미 적혀 있다. -->
+<div class="store">
+  <span class="store-badge">구글 플레이 공개 준비 중</span>
+  <!--
+  <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.appiso.eventmoney">구글 플레이에서 받기</a>
+  -->
+  <p class="store-note">출시를 준비하고 있습니다. 스토어에 공개되면 이 자리에서 바로 받을 수 있습니다.</p>
+</div>
+
+<div class="box">
+  광고 없이 <strong>완전 무료</strong>입니다. 결제도, 로그인도, 계정도 없습니다.
+  인터넷 권한을 아예 요청하지 않아서 <strong>비행기 모드에서도</strong> 그대로 쓸 수 있습니다.
+</div>
+
+<h2>이런 걸 할 수 있어요</h2>
+<ul>
+  <li><strong>낸 경조금</strong> — 언제, 누구에게, 어떤 일로(결혼·장례·출산·돌·생일·개업·기타),
+    얼마를 냈는지 적어 둡니다. 금액은 숫자로 직접 적고, 3만·5만·10만 같은 칩으로 한 번에 넣을 수도
+    있어요. 적은 금액은 "7.7만원"처럼 되읽어 줘서 0을 잘못 세는 실수를 막아줍니다.</li>
+  <li><strong>받은 경조금</strong> — 내 경조사(우리 결혼, 아버지 칠순 …)를 만들고 준 분들을
+    이름·금액만으로 한 명씩 쌓습니다. 한 명 적으면 이름 칸으로 바로 돌아와서 방명록이나 봉투를
+    그대로 옮겨 적기 좋아요.</li>
+  <li><strong>사람별로 찾기</strong> — 이름이 같은 기록을 한 사람으로 모아 받은 합계·낸 합계와
+    차이를 보여줍니다. "받은 쪽이 20만원 더 많아요" 한 줄이면 얼마를 낼지 정할 수 있어요.
+    경조금을 적는 자리에서도 이름만 넣으면 그 사람과 오간 기록이 바로 뜹니다.</li>
+  <li><strong>분석</strong> — 월별·연도별·전체로 받은 돈과 낸 돈, 차액을 나란히 놓은 표.
+    경조사 종류별 원그래프와 한 건 평균, 많이 주신 분, 그리고 전 기간을 통틀어
+    "아직 더 받은 분"까지 정리해 줍니다.</li>
+  <li><strong>비밀번호·지문 잠금</strong> — 원하면 숫자 4자리로 잠글 수 있고, 폰이 지원하면
+    지문·얼굴로도 열립니다. 걸기 전에는 아무것도 묻지 않고 바로 열려요.</li>
+</ul>
+
+<h2>앱 안에서는 이렇게 보여요</h2>
+<!-- 스크린샷은 store/screenshots/의 사본이다. 화면이 바뀌면 골든 테스트로 다시 만들어
+     (flutter test --update-goldens tool/screenshots/store_screenshot_test.dart)
+     tool/publish_pages.sh로 복사한다. -->
+<section class="shots">
+<figure><img src="shots/01-given.png" alt="낸 경조금 목록과 전체·올해 합계" loading="lazy"><figcaption>낸 경조금과 합계.</figcaption></figure>
+<figure><img src="shots/02-event.png" alt="행사 화면에서 이름과 금액으로 받은 분을 적는 모습" loading="lazy"><figcaption>받은 분을 한 명씩 빠르게.</figcaption></figure>
+<figure><img src="shots/03-person.png" alt="한 사람의 받음·냄 합계와 주고받은 기록" loading="lazy"><figcaption>그 사람과 오간 전부.</figcaption></figure>
+<figure><img src="shots/04-stats-chart.png" alt="경조사 종류별 원그래프와 종류마다의 건수·비율·합계" loading="lazy"><figcaption>어떤 일에 얼마나 썼는지.</figcaption></figure>
+<figure><img src="shots/05-stats-table.png" alt="월별 받음·냄·차액을 비교하는 표" loading="lazy"><figcaption>월별·연도별로 견주기.</figcaption></figure>
+<figure><img src="shots/06-lock.png" alt="숫자 네 자리 비밀번호 잠금 화면" loading="lazy"><figcaption>원하면 잠글 수 있어요.</figcaption></figure>
+</section>
+<p>화면에 보이는 이름과 금액은 기능을 설명하기 위한 예시입니다.</p>
+
+<h2>개인정보</h2>
+<p>
+  이 앱은 개인정보를 수집하지 않습니다. 적어 넣은 내용은 휴대폰 안에만 저장되고
+  개발자에게 전송되지 않습니다. 자세한 내용은
+  <a href="./privacy.html">개인정보처리방침</a>을 확인해 주세요.
+</p>
+
+<h2>문의</h2>
+<p>
+  버그 제보나 넣었으면 하는 기능이 있으면
+  <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 알려주세요.
+  어떤 버전에서 생긴 일인지(앱 도움말 맨 아래에 적혀 있어요) 같이 적어주시면 도움이 됩니다.
+</p>
+
+<footer>
+  <!-- 앱이소 공통 소개 문구. 원문은 AIS330/AppisoCommon 저장소의 BRAND.md에 있고, 그쪽을 고치면 여기도 맞춘다. -->
+  <p>
+    앱이소에는 광고도, 인앱 결제도 없습니다. 오직 “얼마나 편한가”만 생각하며 만듭니다.
+    많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만, 앱이소는 오로지 사용자 경험만 고민합니다.
+    <strong>제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</strong>
+  </p>
+  <p>
+    <a href="../">앱이소의 다른 앱 보기</a> · appisoLabs@gmail.com
+  </p>
+</footer>
+
+</body>
+</html>
