@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앱이소 행복 — 오늘 기분에 어울리는 위로·칭찬 한마디</title>
+<meta name="description" content="오늘 기분을 고르면 어울리는 위로와 칭찬 한마디를 그림과 함께 들려줘요. 하루 한 번이면 충분해요. 광고 없이 완전 무료, 인터넷 없이 동작합니다.">
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0 auto; padding: 40px 20px 64px; max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; color: #1b1b1f; background: #fff; word-break: keep-all;
+  }
+  header { text-align: center; margin-bottom: 40px; }
+  header img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font-size: 1.7rem; margin: 16px 0 4px; }
+  .tagline { color: #6b6b70; margin-top: 0; }
+  h2 { font-size: 1.15rem; margin-top: 40px; border-top: 1px solid #e5e5ea; padding-top: 20px; }
+  ul { padding-left: 20px; }
+  li { margin: 10px 0; }
+  a { color: #00796b; }
+  .box { background: #f2faf6; border-radius: 12px; padding: 16px 20px; margin: 24px 0; }
+  footer { margin-top: 48px; font-size: .85rem; color: #6b6b70; text-align: center; }
+  /* 스크린샷은 좁은 화면에서 옆으로 밀어 볼 수 있게 한 줄로 둔다. */
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; margin: 24px 0; }
+  .shots figure { margin: 0; flex: 0 0 auto; width: 190px; }
+  .shots img {
+    width: 100%; border-radius: 12px; border: 1px solid #e5e5ea; display: block;
+  }
+  .shots figcaption { font-size: .8rem; color: #6b6b70; text-align: center; margin-top: 6px; }
+  /* 스토어 버튼. 출시 전에는 회색 .store-badge를 보여주고, 공개되면 .store-btn 링크로 바꾼다
+     (바로 아래 HTML의 주석에 바꾸는 방법을 적어 뒀다). */
+  .store { text-align: center; margin: 0 0 28px; }
+  .store-btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    background: #00796b; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .store-badge {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    border: 1px dashed #c9c9d0; color: #6b6b70; font-weight: 600;
+  }
+  .store-note { margin: 10px 0 0; font-size: .85rem; color: #6b6b70; }
+</style>
+</head>
+<body>
+
+<header>
+  <!-- 아이콘은 store/play-store-icon-512.png의 사본이다 — tool/publish_pages.ps1이 pages/happy/icon-512.png로 복사한다. -->
+  <img src="./icon-512.png" alt="앱이소 행복 아이콘" onerror="this.style.display='none'">
+  <h1>앱이소 행복</h1>
+  <p class="tagline">하루 한 번, 오늘 기분에 어울리는 한마디</p>
+</header>
+
+<!-- 스토어에 공개되면: 아래 <span class="store-badge">…</span> 줄과 .store-note 문단을 지우고,
+     주석으로 감싸 둔 <a class="store-btn"> 링크를 밖으로 꺼내면 된다. 주소는 실제 패키지
+     이름(com.appiso.happy)으로 이미 적혀 있다. -->
+<div class="store">
+  <span class="store-badge">구글 플레이 공개 준비 중</span>
+  <!--
+  <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.appiso.happy">구글 플레이에서 받기</a>
+  -->
+  <p class="store-note">출시를 준비하고 있습니다. 스토어에 공개되면 이 자리에서 바로 받을 수 있습니다.</p>
+</div>
+
+<div class="box">
+  광고 없이 <strong>완전 무료</strong>입니다. 결제도, 로그인도, 계정도 없습니다.
+  인터넷 권한을 아예 요청하지 않아서 <strong>비행기 모드에서도</strong> 그대로 쓸 수 있습니다.
+  이야기도 그림도 앱 안에 들어 있어서 내려받기를 기다릴 일이 없어요.
+</div>
+
+<h2>이런 앱이에요</h2>
+<p>
+  지친 하루의 끝에 “오늘 고생했어”라는 말 한마디가 듣고 싶을 때가 있죠.
+  앱이소 행복은 하루에 한 번, 오늘 기분을 고르면 그 기분에 어울리는 위로와 칭찬 한마디를
+  그림과 함께 들려주는 앱입니다. 적을 것도, 기억할 것도 없어요. 열고, 고르고, 한마디 듣고 나가면 그걸로 끝이에요.
+</p>
+
+<h2>이런 걸 할 수 있어요</h2>
+<ul>
+  <li><strong>하루 한 번, 오늘 기분 어때요?</strong> — 좋아요 · 그냥 그래요 · 지쳤어요 · 속상해요 · 화가 나요 · 걱정돼요.
+    여섯 가지 중에서 하나만 고르면, 그 기분에 어울리는 이야기 한 편과 그림 한 장이 카드로 나와요.</li>
+  <li><strong>650편이 넘는 이야기</strong> — 아직 받은 적 없는 이야기 중에서 골라 드려요. 어제 들은 말이 오늘 또 나오지 않아요.
+    한 바퀴를 다 들으셨다면 그때 처음부터 다시 돌아요. [다른 이야기]를 누르면 같은 기분의 다른 편을 바로 받을 수 있고,
+    고른 기분이 아니었다 싶으면 [기분이 바뀌었어요]로 다시 고르면 됩니다.</li>
+  <li><strong>나에게 맞는 말로</strong> — 처음에 나이대·성별·직업을 한 번만 골라 두면 그에 맞는 이야기도 섞어서 들려드려요.
+    부르고 싶은 이름을 적어 두면 “지수님, 오늘 여기까지 온 것만으로 충분해요”처럼 이름을 불러 드려요. 안 적어도 됩니다.</li>
+  <li><strong>그림 스물다섯 장</strong> — 기분마다 네 장씩, 같은 친구가 그날 기분에 맞는 모습으로 찾아와요.
+    같은 기분을 골라도 카드마다 다른 그림이 나와요.</li>
+  <li><strong>마음에 남는 말은 보관함에</strong> — 하트를 누르면 보관함에 담겨요. 힘든 날 꺼내서 다시 읽으면 되고,
+    메신저나 메모 앱으로 공유할 수도 있어요.</li>
+  <li><strong>밝게 · 어둡게</strong> — 시스템 설정을 따르거나 직접 고를 수 있어요. 밤에 열어도 눈이 부시지 않아요.</li>
+</ul>
+
+<h2>이 앱이 하지 않는 것</h2>
+<ul>
+  <li>기분을 날짜별로 기록하거나 그래프로 보여주지 않아요. 오늘 카드 한 장이 전부입니다.</li>
+  <li>무엇을 하라고 시키거나 처방하지 않아요. 그냥 듣기 좋은 말 한마디를 건넬 뿐이에요.</li>
+  <li>알림을 보내지 않아요. 생각날 때 열면 됩니다.</li>
+</ul>
+
+<h2>앱 안에서는 이렇게 보여요</h2>
+<!-- 스크린샷은 store/screenshots/의 사본이다. 화면이 바뀌면 골든 테스트로 다시 만들어
+     (flutter test --update-goldens tool/screenshots/store_screenshot_test.dart)
+     tool/publish_pages.ps1로 복사한다. 캡션은 store/play-listing.md "스크린샷 순서와 설명" 표와 맞춘다. -->
+<section class="shots">
+<figure><img src="shots/01-mood.png" alt="오늘 기분 어때요? 여섯 가지 기분 타일과 지금까지 만난 횟수" loading="lazy"><figcaption>오늘 기분 하나만 고르면 돼요.</figcaption></figure>
+<figure><img src="shots/02-tired.png" alt="지쳤어요 카드 — 그림, 한마디, 하트·공유·다른 이야기 버튼" loading="lazy"><figcaption>그림 한 장과 한마디가 카드로.</figcaption></figure>
+<figure><img src="shots/03-good.png" alt="좋아요 카드 — 기분마다 다른 카드 색과 그림" loading="lazy"><figcaption>기분마다 색과 그림이 바뀌어요.</figcaption></figure>
+<figure><img src="shots/04-worried.png" alt="걱정돼요 카드" loading="lazy"><figcaption>걱정되는 날에는 이런 말을.</figcaption></figure>
+<figure><img src="shots/05-favorites.png" alt="보관함 — 하트로 담아 둔 이야기 목록" loading="lazy"><figcaption>마음에 남는 말은 보관함에.</figcaption></figure>
+<figure><img src="shots/06-start.png" alt="첫 화면 — 이름(선택)과 나이대·성별·직업 고르기" loading="lazy"><figcaption>처음 한 번만 골라 두면 돼요.</figcaption></figure>
+</section>
+<p>화면에 보이는 이름과 인사말, 날짜는 기능을 설명하기 위한 예시입니다.</p>
+
+<h2>개인정보</h2>
+<p>
+  이 앱은 개인정보를 수집하지 않습니다. 회원가입이 없고 이름도, 이메일도 묻지 않습니다.
+  고른 기분은 그날 이야기를 고르는 데에만 쓰고 날짜별로 남기지 않아요.
+  별명·나이대·성별·직업과 보관함은 휴대폰 안에 저장되고 개발자에게 전송되지 않습니다.
+  폰을 바꿀 때 보관함이 따라오도록 구글 계정 자동 백업은 켜 두었어요 — 백업은 안드로이드가
+  사용자 계정으로 하는 기능이고, 개발자는 그 내용을 받지 않습니다. 자세한 내용은
+  <a href="./privacy.html">개인정보처리방침</a>을 확인해 주세요.
+</p>
+
+<h2>문의</h2>
+<p>
+  버그 제보나 넣었으면 하는 기능이 있으면
+  <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 알려주세요.
+  어떤 버전에서 생긴 일인지(앱 도움말 맨 아래에 적혀 있어요) 같이 적어주시면 도움이 됩니다.
+</p>
+
+<footer>
+  <!-- 앱이소 공통 소개 문구. 원문은 AIS330/AppisoCommon 저장소의 BRAND.md에 있고, 그쪽을 고치면 여기도 맞춘다. -->
+  <p>
+    앱이소에는 광고도, 인앱 결제도 없습니다. 오직 “얼마나 편한가”만 생각하며 만듭니다.
+    많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만, 앱이소는 오로지 사용자 경험만 고민합니다.
+    <strong>제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</strong>
+  </p>
+  <p>
+    <a href="../">앱이소의 다른 앱 보기</a> · appisoLabs@gmail.com
+  </p>
+</footer>
+
+</body>
+</html>

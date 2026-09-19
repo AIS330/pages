@@ -11,34 +11,66 @@
 <meta property="og:description" content="가입도, 서버도, 광고도 없습니다. 데이터는 기기에만 저장되고 인터넷 없이도 동작합니다.">
 <meta property="og:image" content="https://ais330.github.io/pages/brand/logo.png">
 <style>
+  /* 색 토큰 — 값의 뜻은 AppisoCommon/BRAND.md(색)·DESIGN.md(면과 위계)를 따른다. */
   :root {
     color-scheme: light dark;
     --accent: #00796b;
+    --accent-soft: rgba(0,121,107,.12);
     --fg: #1b1b1f;
     --muted: #6b6b70;
-    --line: rgba(128,128,128,.32);
-    --card: #f4faf8;
+    --line: rgba(128,128,128,.28);
+    --bg: #fafaf8;
+    --card: #ffffff;
+    --tint: #f2faf6;
+    --shadow: 0 1px 2px rgba(0,0,0,.04), 0 10px 28px rgba(0,0,0,.07);
   }
   @media (prefers-color-scheme: dark) {
-    :root { --accent: #4db6ac; --fg: #e6e6ea; --muted: #a0a0a8; --card: rgba(77,182,172,.08); }
+    :root {
+      --accent: #4db6ac; --accent-soft: rgba(77,182,172,.16);
+      --fg: #e6e6ea; --muted: #a0a0a8; --line: rgba(160,160,168,.26);
+      --bg: #121413; --card: #1e2120; --tint: rgba(77,182,172,.08);
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 28px rgba(0,0,0,.35);
+    }
   }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-      "Malgun Gothic", "Noto Sans KR", sans-serif;
-    line-height: 1.7; max-width: 720px; margin: 0 auto; padding: 32px 20px 64px;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+      "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+    line-height: 1.7; margin: 0; padding: 36px 0 64px;
     color: var(--fg);
+    background: var(--bg) radial-gradient(900px 380px at 50% -120px, var(--accent-soft), transparent 70%) no-repeat;
     /* 한글은 기본값이면 어절 중간에서 끊긴다. */
     word-break: keep-all; overflow-wrap: break-word;
   }
+  /* 본문 열. 스크린샷 띠(.strip)만 이 열 밖에 두어 화면 폭을 다 쓴다. */
+  .col { max-width: 720px; margin: 0 auto; padding: 0 20px; }
   a { color: var(--accent); }
+  img { max-width: 100%; }
 
-  header { margin-bottom: 32px; }
-  header img { height: 44px; width: auto; display: block; }
-  .tagline { margin: 14px 0 0; color: var(--muted); }
+  header img.logo { height: 44px; width: auto; display: block; }
+  .tagline { margin: 16px 0 0; font-size: 1.1em; color: var(--muted); }
 
   /* 브랜드 문구. 문장 단위로 끊어 읽히게 문단을 나눠 둔다. 원문은 AppisoCommon/BRAND.md. */
-  .brand { margin: 0 0 10px; }
-  .brand-value { margin: 0; font-weight: 600; color: var(--accent); }
+  .brand { margin: 28px 0 0; }
+  .brand p { margin: 0 0 10px; }
+  .brand-value { margin: 0; font-weight: 700; font-size: 1.08em; color: var(--accent); }
+
+  /* 앱 화면 미리보기 띠. 좁은 화면에서는 옆으로 밀어 본다. 첫 칸이 본문 왼쪽 선에 맞게 여백을 계산한다. */
+  .strip {
+    display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x proximity;
+    margin: 32px 0 0;
+    padding: 8px max(20px, calc(50% - 360px)) 18px;
+    scrollbar-width: thin;
+  }
+  .shot {
+    flex: 0 0 auto; width: 150px; scroll-snap-align: start;
+    text-decoration: none; color: var(--muted); font-size: .84em; text-align: center;
+  }
+  .shot img {
+    display: block; width: 100%; height: auto; background: #fff;
+    border-radius: 18px; border: 1px solid var(--line); box-shadow: var(--shadow);
+  }
+  .shot span { display: block; margin-top: 8px; }
+  .shot:hover span { color: var(--accent); }
 
   h2 { font-size: 1.15em; margin-top: 2.4em; border-top: 1px solid var(--line); padding-top: 20px; }
   .section-note { margin: -6px 0 0; color: var(--muted); font-size: .9em; }
@@ -46,203 +78,341 @@
   .promise { display: grid; gap: 12px; padding: 0; margin: 20px 0 0; list-style: none; }
   @media (min-width: 600px) { .promise { grid-template-columns: 1fr 1fr; } }
   .promise li {
-    background: var(--card); border-radius: 12px; padding: 14px 18px;
+    display: flex; gap: 14px; align-items: flex-start;
+    background: var(--tint); border-radius: 16px; padding: 16px 18px;
   }
+  .promise svg { flex: 0 0 26px; width: 26px; height: 26px; margin-top: 3px; color: var(--accent); }
   .promise strong { display: block; margin-bottom: 2px; }
   .promise span { color: var(--muted); font-size: .93em; }
 
+  .apps { display: grid; gap: 14px; margin-top: 18px; }
+  @media (min-width: 640px) { .apps { grid-template-columns: 1fr 1fr; } }
   .app {
-    border: 1px solid var(--line); border-radius: 12px;
-    padding: 16px 20px; margin: 12px 0;
+    display: flex; gap: 14px; padding: 16px; margin: 0;
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    transition: transform .2s cubic-bezier(.33,1,.68,1), box-shadow .2s cubic-bezier(.33,1,.68,1);
   }
-  .app h3 { margin: 0 0 4px; font-size: 1.05em; }
-  .app p { margin: 0 0 8px; }
+  .app:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+  @media (prefers-reduced-motion: reduce) { .app { transition: none; } .app:hover { transform: none; } }
+  .app-icon { flex: 0 0 auto; }
+  .app-icon img {
+    display: block; width: 60px; height: 60px; border-radius: 15px;
+    border: 1px solid var(--line); background: #fff;
+  }
+  .app-body { min-width: 0; }
+  .app h3 { margin: 0 0 4px; font-size: 1.02em; line-height: 1.45; }
+  .app h3 a { color: inherit; text-decoration: none; }
+  .app h3 a:hover { text-decoration: underline; }
+  .app p { margin: 0 0 8px; font-size: .93em; line-height: 1.6; }
   .app p:last-child { margin-bottom: 0; }
+  .app .links { font-size: .88em; }
   /* 스토어 상태 배지 — 문구는 '준비 중' / '비공개 테스트 중' / '출시됨' 셋뿐이고,
      상태가 바뀔 때마다 갱신한다 (AppisoCommon/GUIDELINES.md §6). */
   .soon {
-    display: inline-block; margin-left: 8px; padding: 0 8px;
+    display: inline-block; margin-left: 6px; padding: 0 8px;
     font-size: .72em; font-weight: 600; vertical-align: middle; white-space: nowrap;
     color: var(--muted); border: 1px solid var(--line); border-radius: 999px;
   }
-  /* '출시됨'은 지금 스토어에서 바로 받을 수 있다는 뜻이라 강조색으로 구분한다. */
-  .soon.live { color: var(--accent); border-color: currentColor; }
+  /* '출시됨'은 지금 스토어에서 바로 받을 수 있다는 뜻이라 강조색으로 채워 구분한다. */
+  .soon.live { color: var(--card); background: var(--accent); border-color: transparent; }
 
-  footer { margin-top: 48px; border-top: 1px solid var(--line); padding-top: 20px;
-    font-size: .88em; color: var(--muted); }
+  .about { display: grid; gap: 14px; margin-top: 20px; }
+  @media (min-width: 600px) { .about { grid-template-columns: 1fr 1fr; } }
+  .about > div { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px; }
+  .about h2 { margin: 0 0 6px; border: 0; padding: 0; }
+  .about p { margin: 0; font-size: .95em; }
+
+  footer {
+    margin-top: 48px; border-top: 1px solid var(--line); padding-top: 20px;
+    font-size: .88em; color: var(--muted);
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  footer img { height: 20px; width: auto; opacity: .7; }
 </style>
 </head>
 <body>
 
+<div class="col">
 <header>
   <h1 style="margin:0"><picture>
     <source srcset="brand/logo_dark.png" media="(prefers-color-scheme: dark)">
-    <img src="brand/logo.png" alt="앱이소">
+    <img class="logo" src="brand/logo.png" alt="앱이소" width="843" height="240">
   </picture></h1>
   <p class="tagline">광고도 인앱 결제도 없이, 가입 없이 오프라인에서도 — 오직 편한 사용감만.</p>
 </header>
+</div>
 
-<p class="brand">앱이소에는 광고도, 인앱 결제도 없습니다.<br>
-오직 “얼마나 편한가”만 생각하며 만듭니다.</p>
+<!-- 대표 화면 몇 장. 원본은 각 앱 폴더의 shots/에 있고, 여기 쓰는 것은 320px로 줄인 사본(home/shots/)이다. -->
+<section class="strip" aria-label="앱 화면 미리보기">
+  <a class="shot" href="TravelMate/"><img src="home/shots/TravelMate.png" width="320" height="569" alt="베트남 여행 — 동·원 환율 계산 화면"><span>베트남 여행</span></a>
+  <a class="shot" href="dday/"><img src="home/shots/dday.png" width="320" height="569" alt="디데이 — 남은 날짜 카드 목록"><span>디데이</span></a>
+  <a class="shot" href="happy/"><img src="home/shots/happy.png" width="320" height="569" alt="행복 — 오늘 기분 어때요? 여섯 가지 기분 타일"><span>행복</span></a>
+  <a class="shot" href="fast_diet/"><img src="home/shots/fast_diet.png" width="320" height="569" alt="단식 다이어트 — 오늘 단식 타이머"><span>단식 다이어트</span></a>
+  <a class="shot" href="money/"><img src="home/shots/money.png" width="320" height="567" alt="가계부 — 이번 달 수입·지출 홈" loading="lazy"><span>가계부</span></a>
+  <a class="shot" href="recipe/"><img src="home/shots/recipe.png" width="320" height="569" alt="레시피 — 요리 노트 목록" loading="lazy"><span>레시피</span></a>
+  <a class="shot" href="routine/"><img src="home/shots/routine.png" width="320" height="569" alt="루틴 — 오늘 할 일 체크" loading="lazy"><span>루틴</span></a>
+  <a class="shot" href="travel_log/"><img src="home/shots/travel_log.png" width="320" height="569" alt="여행 기록 — 여행 카드 목록" loading="lazy"><span>여행 기록</span></a>
+  <a class="shot" href="my_subscription/"><img src="home/shots/my_subscription.png" width="320" height="569" alt="구독관리 — 이번 달 결제액 홈" loading="lazy"><span>구독관리</span></a>
+  <a class="shot" href="voca_intermediate/"><img src="home/shots/voca_intermediate.png" width="320" height="569" alt="영단어 중급 — 암기 카드" loading="lazy"><span>영단어 중급</span></a>
+  <a class="shot" href="event_money/"><img src="home/shots/event_money.png" width="320" height="569" alt="경조사 — 월별 분석 차트" loading="lazy"><span>경조사</span></a>
+</section>
 
-<p class="brand">많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만,<br>
-앱이소는 오로지 사용자 경험만 고민합니다.</p>
-
-<p class="brand-value">제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</p>
+<div class="col">
+<div class="brand">
+  <p>앱이소에는 광고도, 인앱 결제도 없습니다.<br>
+  오직 “얼마나 편한가”만 생각하며 만듭니다.</p>
+  <p>많은 앱이 수익을 위해 정작 쓰는 사람에겐 필요 없는 기능을 얹지만,<br>
+  앱이소는 오로지 사용자 경험만 고민합니다.</p>
+  <p class="brand-value">제가 매일 쓸 앱을, 제 손으로 만들고 있으니까요.</p>
+</div>
 
 <h2>앱이소가 지키는 것</h2>
 <ul class="promise">
   <li>
-    <strong>가입도 로그인도 없습니다</strong>
-    <span>설치하면 바로 씁니다. 계정을 만들 필요도, 이메일을 적을 필요도 없습니다.</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3.5 20a6.5 6.5 0 0 1 13 0"/><path d="m15 12.5 2 2 4-4"/></svg>
+    <div>
+      <strong>가입도 로그인도 없습니다</strong>
+      <span>설치하면 바로 씁니다. 계정을 만들 필요도, 이메일을 적을 필요도 없습니다.</span>
+    </div>
   </li>
   <li>
-    <strong>데이터는 기기에만</strong>
-    <span>적어둔 내용은 휴대폰 안에만 저장되고 서버로 보내지 않습니다. 개발자도 볼 수 없습니다.</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><rect x="9.5" y="11" width="5" height="4.2" rx="1"/><path d="M10.5 11V9.6a1.5 1.5 0 0 1 3 0V11"/></svg>
+    <div>
+      <strong>데이터는 기기에만</strong>
+      <span>적어둔 내용은 휴대폰 안에만 저장되고 서버로 보내지 않습니다. 개발자도 볼 수 없습니다.</span>
+    </div>
   </li>
   <li>
-    <strong>광고도 결제도 없습니다</strong>
-    <span>전부 무료입니다. 화면을 가리는 배너도, 돈을 내야 열리는 기능도 없습니다.</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M4.5 19.5 19.5 4.5"/></svg>
+    <div>
+      <strong>광고도 결제도 없습니다</strong>
+      <span>전부 무료입니다. 화면을 가리는 배너도, 돈을 내야 열리는 기능도 없습니다.</span>
+    </div>
   </li>
   <li>
-    <strong>인터넷이 없어도</strong>
-    <span>비행기 모드에서도 그대로 동작합니다. 환율 갱신처럼 눌러야 나가는 기능만 예외입니다.</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 9a14 14 0 0 1 19 0"/><path d="M5.5 12.5a9.5 9.5 0 0 1 13 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/><path d="m4 4 16 16"/></svg>
+    <div>
+      <strong>인터넷이 없어도</strong>
+      <span>비행기 모드에서도 그대로 동작합니다. 환율 갱신처럼 눌러야 나가는 기능만 예외입니다.</span>
+    </div>
   </li>
 </ul>
 
 <h2>앱</h2>
 <p class="section-note">‘출시됨’은 구글 플레이에서 누구나 받을 수 있는 앱입니다. ‘비공개 테스트 중’은 정식 공개 전, 테스터에게만 열려 있는 앱이고 — 정식 출시되면 여기서 스토어로 바로 이어집니다.</p>
 
-<div class="app">
-  <h3>앱이소 가계부 <span class="soon">비공개 테스트 중</span></h3>
-  <p>여러 장부를 나눠 쓰는 개인 수입·지출 기록 앱. 모든 데이터는 기기에만 저장됩니다.</p>
-  <p><a href="money/">소개</a> · <a href="money/privacy.html">개인정보처리방침</a></p>
-</div>
+<!-- 아이콘은 각 앱 폴더의 icon-512.png를 192px로 줄인 사본(home/icons/<앱>.png)이다.
+     아이콘이 바뀌면 .claude/skills/appIcon/icon-copies.js flatten <앱>/icon-512.png home/icons/<앱>.png 192 로 다시 만든다. -->
+<section class="apps">
 
-<div class="app">
-  <h3>앱이소 베트남 여행 <span class="soon live">출시됨</span></h3>
-  <p>베트남 여행용 환율 계산 · 택시 카드 · 베트남어 회화 · 그룹 정산 · 메모 앱. 모든 데이터는 기기에만 저장됩니다.</p>
-  <p><a href="https://play.google.com/store/apps/details?id=com.appiso.vietnammate">구글 플레이에서 받기</a> · <a href="TravelMate/">소개</a> · <a href="TravelMate/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="TravelMate/"><img src="home/icons/TravelMate.png" width="192" height="192" alt=""></a>
+  <div class="app-body">
+    <h3><a href="TravelMate/">앱이소 베트남 여행</a> <span class="soon live">출시됨</span></h3>
+    <p>베트남 여행용 환율 계산 · 택시 카드 · 베트남어 회화 · 그룹 정산 · 메모 앱. 모든 데이터는 기기에만 저장됩니다.</p>
+    <p class="links"><a href="https://play.google.com/store/apps/details?id=com.appiso.vietnammate">구글 플레이에서 받기</a> · <a href="TravelMate/">소개</a> · <a href="TravelMate/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 영단어 초급 <span class="soon">비공개 테스트 중</span></h3>
-  <p>기초 영단어 600개를 주제별 Day 30개로 나눠 외우는 앱. 단어장·암기 카드·퀴즈·끝 철자 채우기로 익히고, 오늘·주간·월간 학습량을 통계로 봅니다.</p>
-  <p><a href="voca_basic/">소개</a> · <a href="voca_basic/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="money/"><img src="home/icons/money.png" width="192" height="192" alt=""></a>
+  <div class="app-body">
+    <h3><a href="money/">앱이소 가계부</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>여러 장부를 나눠 쓰는 개인 수입·지출 기록 앱. 모든 데이터는 기기에만 저장됩니다.</p>
+    <p class="links"><a href="money/">소개</a> · <a href="money/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 영단어 중급 <span class="soon">비공개 테스트 중</span></h3>
-  <p>중3~고1 수능 기초 영단어 900개를 주제별 Day 30개로 나눠 외우는 앱. 단어마다 유의어·반의어·파생어·전치사 결합을 담고, 뜻 고르기부터 알맞은 형태·전치사 채우기·철자 쓰기까지 일곱 가지 퀴즈와 간격 반복 복습으로 익힙니다. 영단어 초급의 다음 단계입니다.</p>
-  <p><a href="voca_intermediate/">소개</a> · <a href="voca_intermediate/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="voca_basic/"><img src="home/icons/voca_basic.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="voca_basic/">앱이소 영단어 초급</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>기초 영단어 600개를 주제별 Day 30개로 나눠 외우는 앱. 단어장·암기 카드·퀴즈·끝 철자 채우기로 익히고, 오늘·주간·월간 학습량을 통계로 봅니다.</p>
+    <p class="links"><a href="voca_basic/">소개</a> · <a href="voca_basic/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 암기장 <span class="soon">비공개 테스트 중</span></h3>
-  <p>질문과 답을 직접 넣어 만드는 자작 문제 암기장. 암기 체크와 주관식 퀴즈로 외우고, 과목 단위로 친구와 텍스트로 주고받을 수 있습니다.</p>
-  <p><a href="quiz_note/">소개</a> · <a href="quiz_note/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="voca_intermediate/"><img src="home/icons/voca_intermediate.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="voca_intermediate/">앱이소 영단어 중급</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>중3~고1 수능 기초 영단어 900개를 주제별 Day 30개로 나눠 외우는 앱. 단어마다 유의어·반의어·파생어·전치사 결합을 담고, 뜻 고르기부터 알맞은 형태·전치사 채우기·철자 쓰기까지 일곱 가지 퀴즈와 간격 반복 복습으로 익힙니다. 영단어 초급의 다음 단계입니다.</p>
+    <p class="links"><a href="voca_intermediate/">소개</a> · <a href="voca_intermediate/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 학생 시간표 <span class="soon">비공개 테스트 중</span></h3>
-  <p>학교 수업·학원·혼자 공부를 한 시간표에 담는 앱. 학기·시험 기간별로 시간표를 갈아 끼우고, 완료 체크를 남기면 과목별 주당 학습량을 계획과 실제로 비교해 줍니다.</p>
-  <p><a href="timetable_student/">소개</a> · <a href="timetable_student/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="quiz_note/"><img src="home/icons/quiz_note.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="quiz_note/">앱이소 암기장</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>질문과 답을 직접 넣어 만드는 자작 문제 암기장. 암기 체크와 주관식 퀴즈로 외우고, 과목 단위로 친구와 텍스트로 주고받을 수 있습니다.</p>
+    <p class="links"><a href="quiz_note/">소개</a> · <a href="quiz_note/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 심플메모 <span class="soon">비공개 테스트 중</span></h3>
-  <p>텍스트와 체크박스를 한 메모에 섞어 쓰는 심플 메모장. 할 일은 적고 엔터로 넣어 목록에서 바로 체크하고, 폴더 잠금(비밀번호·지문)과 30일 휴지통·검색·수동 백업까지 전부 폰 안에서만 동작합니다.</p>
-  <p><a href="simple_memo/">소개</a> · <a href="simple_memo/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="timetable_student/"><img src="home/icons/timetable_student.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="timetable_student/">앱이소 학생 시간표</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>학교 수업·학원·혼자 공부를 한 시간표에 담는 앱. 학기·시험 기간별로 시간표를 갈아 끼우고, 완료 체크를 남기면 과목별 주당 학습량을 계획과 실제로 비교해 줍니다.</p>
+    <p class="links"><a href="timetable_student/">소개</a> · <a href="timetable_student/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 일기장 <span class="soon">비공개 테스트 중</span></h3>
-  <p>하루 한 편 쓰는 일기장. 비밀번호를 걸면 일기 전체가 암호화되고 지문·얼굴로 열립니다. 목록과 달력 두 가지로 돌아보고, 서버도 로그인도 없이 폰 안에만 저장합니다.</p>
-  <p><a href="diary/">소개</a> · <a href="diary/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="simple_memo/"><img src="home/icons/simple_memo.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="simple_memo/">앱이소 심플메모</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>텍스트와 체크박스를 한 메모에 섞어 쓰는 심플 메모장. 할 일은 적고 엔터로 넣어 목록에서 바로 체크하고, 폴더 잠금(비밀번호·지문)과 30일 휴지통·검색·수동 백업까지 전부 폰 안에서만 동작합니다.</p>
+    <p class="links"><a href="simple_memo/">소개</a> · <a href="simple_memo/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 레시피 <span class="soon">비공개 테스트 중</span></h3>
-  <p>레시피를 따라 하고, 맛을 평가하고, 고쳐서 새 버전으로 남기는 요리 노트. 따라하기 타이머·개선 제안·버전 비교까지, 레시피와 기록은 기기에 저장됩니다.</p>
-  <p><a href="recipe/">소개</a> · <a href="recipe/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="diary/"><img src="home/icons/diary.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="diary/">앱이소 일기장</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>하루 한 편 쓰는 일기장. 비밀번호를 걸면 일기 전체가 암호화되고 지문·얼굴로 열립니다. 목록과 달력 두 가지로 돌아보고, 서버도 로그인도 없이 폰 안에만 저장합니다.</p>
+    <p class="links"><a href="diary/">소개</a> · <a href="diary/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 나의 약 <span class="soon">출시 준비 중</span></h3>
-  <p>먹을 시간을 먼저 정하고 알람에 약을 담아요. 복용 체크·처방 묶음·사진/PDF 건강 기록을 기기에 보관하고, 재고와 수치 비교는 필요할 때만 사용해요.</p>
-  <p><a href="my_medicine/">소개</a> · <a href="my_medicine/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="recipe/"><img src="home/icons/recipe.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="recipe/">앱이소 레시피</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>레시피를 따라 하고, 맛을 평가하고, 고쳐서 새 버전으로 남기는 요리 노트. 따라하기 타이머·개선 제안·버전 비교까지, 레시피와 기록은 기기에 저장됩니다.</p>
+    <p class="links"><a href="recipe/">소개</a> · <a href="recipe/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 단식 다이어트 <span class="soon">비공개 테스트 중</span></h3>
-  <p>간헐적 단식 타이머와 오늘 먹은 것의 칼로리를 기록하고, 주·월 단식 성공 통계를 몸무게 그래프와 겹쳐 봅니다. 한국 음식 376개가 들어 있고, 이름·전화번호는 묻지 않으며 인터넷 없이 동작합니다.</p>
-  <p><a href="fast_diet/">소개</a> · <a href="fast_diet/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="my_medicine/"><img src="home/icons/my_medicine.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="my_medicine/">앱이소 나의 약</a> <span class="soon">준비 중</span></h3>
+    <p>먹을 시간을 먼저 정하고 알람에 약을 담아요. 복용 체크·처방 묶음·사진/PDF 건강 기록을 기기에 보관하고, 재고와 수치 비교는 필요할 때만 사용해요.</p>
+    <p class="links"><a href="my_medicine/">소개</a> · <a href="my_medicine/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 디데이 <span class="soon">비공개 테스트 중</span></h3>
-  <p>소중한 날까지 남은 날짜를 확인하고 함께할 사람, 준비물과 사진 다섯 장을 기록해요. 월간 달력과 미리 알림을 지원하며 인터넷 없이 사용할 수 있어요.</p>
-  <p><a href="dday/">소개</a> · <a href="dday/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="fast_diet/"><img src="home/icons/fast_diet.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="fast_diet/">앱이소 단식 다이어트</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>간헐적 단식 타이머와 오늘 먹은 것의 칼로리를 기록하고, 주·월 단식 성공 통계를 몸무게 그래프와 겹쳐 봅니다. 한국 음식 376개가 들어 있고, 이름·전화번호는 묻지 않으며 인터넷 없이 동작합니다.</p>
+    <p class="links"><a href="fast_diet/">소개</a> · <a href="fast_diet/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 나의 맛집 <span class="soon">비공개 테스트 중</span></h3>
-  <p>다녀온 맛집을 사진·별점·가격대와 함께 카드로 기록하고, 내 주변과 지도에서 찾아보고, 글·이미지 카드·앱 파일로 친구와 나눠요. 인터넷 없이 사용할 수 있어요.</p>
-  <p><a href="my_restaurant/">소개</a> · <a href="my_restaurant/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="dday/"><img src="home/icons/dday.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="dday/">앱이소 디데이</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>소중한 날까지 남은 날짜를 확인하고 함께할 사람, 준비물과 사진 다섯 장을 기록해요. 월간 달력과 미리 알림을 지원하며 인터넷 없이 사용할 수 있어요.</p>
+    <p class="links"><a href="dday/">소개</a> · <a href="dday/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 일본 여행 <span class="soon">비공개 테스트 중</span></h3>
-  <p>엔·원·달러 환율 계산, 기사님께 보여주는 일본어 주소 카드, 상황별 일본어 회화, 그룹 정산과 여행 메모를 한 앱에. 환율을 받아올 때만 인터넷을 쓰고 나머지는 오프라인으로 동작해요.</p>
-  <p><a href="japan_mate/">소개</a> · <a href="japan_mate/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="my_restaurant/"><img src="home/icons/my_restaurant.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="my_restaurant/">앱이소 나의 맛집</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>다녀온 맛집을 사진·별점·가격대와 함께 카드로 기록하고, 내 주변과 지도에서 찾아보고, 글·이미지 카드·앱 파일로 친구와 나눠요. 인터넷 없이 사용할 수 있어요.</p>
+    <p class="links"><a href="my_restaurant/">소개</a> · <a href="my_restaurant/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 루틴 <span class="soon">비공개 테스트 중</span></h3>
-  <p>매일 또는 요일별로 반복하는 일을 등록하고 시간마다 알림을 받아요. 오늘 할 일은 체크 한 번으로 끝내고, 달력에서 날짜별·월별 달성률을 확인해요. 가입 없이 인터넷 없이 동작합니다.</p>
-  <p><a href="routine/">소개</a> · <a href="routine/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="japan_mate/"><img src="home/icons/japan_mate.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="japan_mate/">앱이소 일본 여행</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>엔·원·달러 환율 계산, 기사님께 보여주는 일본어 주소 카드, 상황별 일본어 회화, 그룹 정산과 여행 메모를 한 앱에. 환율을 받아올 때만 인터넷을 쓰고 나머지는 오프라인으로 동작해요.</p>
+    <p class="links"><a href="japan_mate/">소개</a> · <a href="japan_mate/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 구독관리 <span class="soon">비공개 테스트 중</span></h3>
-  <p>매달 나가는 구독을 한곳에 모아 두고 이번 달 결제액과 월 평균, 다음 결제일을 확인해요. 유형별 도넛과 월별·연별 막대로 어디에 얼마를 쓰는지 보고, 결제 수단은 카드 번호 없이 이름만 적어요. 인터넷 없이 사용할 수 있어요.</p>
-  <p><a href="my_subscription/">소개</a> · <a href="my_subscription/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="routine/"><img src="home/icons/routine.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="routine/">앱이소 루틴</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>매일 또는 요일별로 반복하는 일을 등록하고 시간마다 알림을 받아요. 오늘 할 일은 체크 한 번으로 끝내고, 달력에서 날짜별·월별 달성률을 확인해요. 가입 없이 인터넷 없이 동작합니다.</p>
+    <p class="links"><a href="routine/">소개</a> · <a href="routine/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 대만 여행 <span class="soon">비공개 테스트 중</span></h3>
-  <p>대만달러·원·달러 환율 계산, 기사님께 보여주는 번체 중국어 주소 카드, 상황별 중국어 회화, 그룹 정산과 여행 메모를 한 앱에. 환율을 받아올 때만 인터넷을 쓰고 나머지는 오프라인으로 동작해요.</p>
-  <p><a href="taiwan_mate/">소개</a> · <a href="taiwan_mate/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="my_subscription/"><img src="home/icons/my_subscription.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="my_subscription/">앱이소 구독관리</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>매달 나가는 구독을 한곳에 모아 두고 이번 달 결제액과 월 평균, 다음 결제일을 확인해요. 유형별 도넛과 월별·연별 막대로 어디에 얼마를 쓰는지 보고, 결제 수단은 카드 번호 없이 이름만 적어요. 인터넷 없이 사용할 수 있어요.</p>
+    <p class="links"><a href="my_subscription/">소개</a> · <a href="my_subscription/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 경조사 <span class="soon">비공개 테스트 중</span></h3>
-  <p>낸 경조금과 받은 경조금을 한곳에 적어 두고 사람별로 찾아봐요. 이름만 넣으면 그 사람과 오간 기록이 바로 떠서 얼마를 낼지 정할 수 있고, 월별·종류별 분석으로 낸 돈과 받은 돈을 견줘요. 원하면 비밀번호·지문으로 잠급니다. 인터넷 없이 동작해요.</p>
-  <p><a href="event_money/">소개</a> · <a href="event_money/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="taiwan_mate/"><img src="home/icons/taiwan_mate.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="taiwan_mate/">앱이소 대만 여행</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>대만달러·원·달러 환율 계산, 기사님께 보여주는 번체 중국어 주소 카드, 상황별 중국어 회화, 그룹 정산과 여행 메모를 한 앱에. 환율을 받아올 때만 인터넷을 쓰고 나머지는 오프라인으로 동작해요.</p>
+    <p class="links"><a href="taiwan_mate/">소개</a> · <a href="taiwan_mate/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<div class="app">
-  <h3>앱이소 여행 기록 <span class="soon">출시 준비 중</span></h3>
-  <p>여행마다 맛집·관광지·숙소를 사진과 함께 적고, 날짜별 일정에 예상·실제 금액을 남겨 예산과 견줘요. 여행 전체나 "맛집만" 골라 친구에게 글이나 앱 파일로 보내고, 사진까지 담은 백업 파일로 새 폰에서 그대로 되돌립니다. 인터넷 없이 동작해요.</p>
-  <p><a href="travel_log/">소개</a> · <a href="travel_log/privacy.html">개인정보처리방침</a></p>
-</div>
+<article class="app">
+  <a class="app-icon" href="event_money/"><img src="home/icons/event_money.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="event_money/">앱이소 경조사</a> <span class="soon">비공개 테스트 중</span></h3>
+    <p>낸 경조금과 받은 경조금을 한곳에 적어 두고 사람별로 찾아봐요. 이름만 넣으면 그 사람과 오간 기록이 바로 떠서 얼마를 낼지 정할 수 있고, 월별·종류별 분석으로 낸 돈과 받은 돈을 견줘요. 원하면 비밀번호·지문으로 잠급니다. 인터넷 없이 동작해요.</p>
+    <p class="links"><a href="event_money/">소개</a> · <a href="event_money/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<h2>만드는 사람</h2>
-<p>
-  앱이소는 한 사람이 만드는 개인 개발 브랜드입니다. 회사도, 팀도, 투자도 없습니다.
-  그래서 광고를 붙이거나 기능을 잠글 이유가 없고, 제가 매일 쓰면서 불편한 곳만 고쳐 나갑니다.
-</p>
+<article class="app">
+  <a class="app-icon" href="travel_log/"><img src="home/icons/travel_log.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="travel_log/">앱이소 여행 기록</a> <span class="soon">준비 중</span></h3>
+    <p>여행마다 맛집·관광지·숙소를 사진과 함께 적고, 날짜별 일정에 예상·실제 금액을 남겨 예산과 견줘요. 여행 전체나 "맛집만" 골라 친구에게 글이나 앱 파일로 보내고, 사진까지 담은 백업 파일로 새 폰에서 그대로 되돌립니다. 인터넷 없이 동작해요.</p>
+    <p class="links"><a href="travel_log/">소개</a> · <a href="travel_log/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
 
-<h2>문의</h2>
-<p>
-  버그 제보나 넣었으면 하는 기능이 있으면
-  <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 알려주세요.
-  어떤 앱의 어떤 버전인지(앱 도움말 맨 아래에 적혀 있습니다) 같이 적어주시면 도움이 됩니다.
-</p>
+<article class="app">
+  <a class="app-icon" href="happy/"><img src="home/icons/happy.png" width="192" height="192" alt="" loading="lazy"></a>
+  <div class="app-body">
+    <h3><a href="happy/">앱이소 행복</a> <span class="soon">준비 중</span></h3>
+    <p>오늘 기분을 고르면 어울리는 위로와 칭찬 한마디를 그림과 함께 들려줘요. 하루 한 번이면 충분해요. 기분을 날짜별로 기록하거나 그래프로 보여주지 않고, 이야기 650편과 그림 스물다섯 장이 앱 안에 들어 있어 인터넷 없이 동작해요.</p>
+    <p class="links"><a href="happy/">소개</a> · <a href="happy/privacy.html">개인정보처리방침</a></p>
+  </div>
+</article>
+
+</section>
+
+<section class="about">
+  <div>
+    <h2>만드는 사람</h2>
+    <p>
+      앱이소는 한 사람이 만드는 개인 개발 브랜드입니다. 회사도, 팀도, 투자도 없습니다.
+      그래서 광고를 붙이거나 기능을 잠글 이유가 없고, 제가 매일 쓰면서 불편한 곳만 고쳐 나갑니다.
+    </p>
+  </div>
+  <div>
+    <h2>문의</h2>
+    <p>
+      버그 제보나 넣었으면 하는 기능이 있으면
+      <a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a> 으로 알려주세요.
+      어떤 앱의 어떤 버전인지(앱 도움말 맨 아래에 적혀 있습니다) 같이 적어주시면 도움이 됩니다.
+    </p>
+  </div>
+</section>
 
 <footer>
-  앱이소 · appisoLabs@gmail.com
+  <picture>
+    <source srcset="brand/logo_dark.png" media="(prefers-color-scheme: dark)">
+    <img src="brand/logo.png" alt="" width="843" height="240">
+  </picture>
+  <span>앱이소 · appisoLabs@gmail.com</span>
 </footer>
+</div>
 
 </body>
 </html>
