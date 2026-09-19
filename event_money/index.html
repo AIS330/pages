@@ -77,11 +77,13 @@
   <li><strong>받은 경조금</strong> — 내 경조사(우리 결혼, 아버지 칠순 …)를 만들고 준 분들을
     이름·금액만으로 한 명씩 쌓습니다. 한 명 적으면 이름 칸으로 바로 돌아와서 방명록이나 봉투를
     그대로 옮겨 적기 좋아요.</li>
-  <li><strong>사람별로 찾기</strong> — 이름이 같은 기록을 한 사람으로 모아 받은 합계·낸 합계와
-    차이를 보여줍니다. "받은 쪽이 20만원 더 많아요" 한 줄이면 얼마를 낼지 정할 수 있어요.
+  <li><strong>사람별로 찾기</strong> — 이름이 같은 기록을 한 사람으로 모아 받은 합계·낸 합계를
+    색으로 나눠 크게 보여주고, 두 값을 견주는 막대와 "받은 쪽이 20만원 더 많아요" 한 줄이 따라옵니다.
+    그 한 줄이면 얼마를 낼지 정할 수 있어요.
     경조금을 적는 자리에서도 이름만 넣으면 그 사람과 오간 기록이 바로 뜹니다.</li>
-  <li><strong>분석</strong> — 월별·연도별·전체로 받은 돈과 낸 돈, 차액을 나란히 놓은 표.
-    경조사 종류별 원그래프와 한 건 평균, 많이 주신 분, 그리고 전 기간을 통틀어
+  <li><strong>분석</strong> — 기간 면의 화살표로 앞뒤 기간을 오가며 받은 돈과 낸 돈을 견주고,
+    월별·연도별·전체로 차액을 나란히 놓은 표에서 기간을 눌러도 바뀝니다.
+    경조사 종류별 고리 그래프(조각 안에 비율)와 한 건 평균, 많이 주신 분, 그리고 전 기간을 통틀어
     "아직 더 받은 분"까지 정리해 줍니다.</li>
   <li><strong>비밀번호·지문 잠금</strong> — 원하면 숫자 4자리로 잠글 수 있고, 폰이 지원하면
     지문·얼굴로도 열립니다. 걸기 전에는 아무것도 묻지 않고 바로 열려요.</li>
@@ -92,10 +94,10 @@
      (flutter test --update-goldens tool/screenshots/store_screenshot_test.dart)
      tool/publish_pages.sh로 복사한다. -->
 <section class="shots">
-<figure><img src="shots/01-given.png" alt="낸 경조금 목록과 전체·올해 합계" loading="lazy"><figcaption>낸 경조금과 합계.</figcaption></figure>
-<figure><img src="shots/02-event.png" alt="행사 화면에서 이름과 금액으로 받은 분을 적는 모습" loading="lazy"><figcaption>받은 분을 한 명씩 빠르게.</figcaption></figure>
-<figure><img src="shots/03-person.png" alt="한 사람의 받음·냄 합계와 주고받은 기록" loading="lazy"><figcaption>그 사람과 오간 전부.</figcaption></figure>
-<figure><img src="shots/04-stats-chart.png" alt="경조사 종류별 원그래프와 종류마다의 건수·비율·합계" loading="lazy"><figcaption>어떤 일에 얼마나 썼는지.</figcaption></figure>
+<figure><img src="shots/01-given.png" alt="올해 낸 경조금 면과 종류 색 카드 목록" loading="lazy"><figcaption>올해 낸 돈을 먼저, 아래는 종류 색 카드.</figcaption></figure>
+<figure><img src="shots/02-event.png" alt="행사 화면의 받은 합계 면 아래에서 이름과 금액으로 받은 분을 적는 모습" loading="lazy"><figcaption>받은 분을 한 명씩 빠르게.</figcaption></figure>
+<figure><img src="shots/03-person.png" alt="한 사람의 받음·냄 합계와 견주는 막대, 주고받은 기록 카드" loading="lazy"><figcaption>그 사람과 오간 전부.</figcaption></figure>
+<figure><img src="shots/04-stats-chart.png" alt="경조사 종류별 고리 그래프와 종류마다의 건수·비율·합계" loading="lazy"><figcaption>어떤 일에 얼마나 썼는지.</figcaption></figure>
 <figure><img src="shots/05-stats-table.png" alt="월별 받음·냄·차액을 비교하는 표" loading="lazy"><figcaption>월별·연도별로 견주기.</figcaption></figure>
 <figure><img src="shots/06-lock.png" alt="숫자 네 자리 비밀번호 잠금 화면" loading="lazy"><figcaption>원하면 잠글 수 있어요.</figcaption></figure>
 </section>
