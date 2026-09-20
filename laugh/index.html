@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앱이소 웃김 — 하루에 1초, 웃고 가요</title>
+<meta name="description" content="나이대·성별·일상에 맞춘 웃긴 얘기를 매일 한 편. 아재개그·넌센스 퀴즈·한 줄 웃김·짧은 이야기·톡 대화 600편을 광고 없이, 가입 없이, 인터넷 없이.">
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0 auto; padding: 40px 20px 64px; max-width: 720px;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    line-height: 1.75; color: #1b1b1f; background: #fff; word-break: keep-all;
+  }
+  header { text-align: center; margin-bottom: 40px; }
+  header img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font-size: 1.7rem; margin: 16px 0 4px; }
+  .tagline { color: #6b6b70; margin-top: 0; }
+  h2 { font-size: 1.15rem; margin-top: 40px; border-top: 1px solid #e5e5ea; padding-top: 20px; }
+  ul { padding-left: 20px; }
+  li { margin: 10px 0; }
+  a { color: #00796b; }
+  .box { background: #f2faf6; border-radius: 12px; padding: 16px 20px; margin: 24px 0; }
+  footer { margin-top: 48px; font-size: .85rem; color: #6b6b70; text-align: center; }
+  .shots { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; margin: 24px 0; }
+  .shots figure { margin: 0; flex: 0 0 auto; width: 190px; }
+  .shots img { width: 100%; border-radius: 12px; border: 1px solid #e5e5ea; display: block; }
+  .shots figcaption { font-size: .8rem; color: #6b6b70; text-align: center; margin-top: 6px; }
+  .store { text-align: center; margin: 0 0 28px; }
+  .store-btn {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    background: #00796b; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .store-badge {
+    display: inline-block; padding: 12px 24px; border-radius: 999px;
+    border: 1px dashed #c9c9d0; color: #6b6b70; font-weight: 600;
+  }
+  .store-note { margin: 10px 0 0; font-size: .85rem; color: #6b6b70; }
+</style>
+</head>
+<body>
+
+<header>
+  <!-- 아이콘은 store/play-store-icon-512.png의 사본이다 — tool/publish_pages.ps1이 pages/laugh/icon-512.png로 복사한다. -->
+  <img src="./icon-512.png" alt="앱이소 웃김 아이콘" onerror="this.style.display='none'">
+  <h1>앱이소 웃김</h1>
+  <p class="tagline">하루에 1초, 웃고 가요.</p>
+</header>
+
+<!-- 스토어에 공개되면: 아래 <span class="store-badge">…</span> 줄과 .store-note 문단을 지우고,
+     주석으로 감싸 둔 <a class="store-btn"> 링크를 밖으로 꺼내면 된다. -->
+<div class="store">
+  <span class="store-badge">구글 플레이 공개 준비 중</span>
+  <!--
+  <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.appiso.laugh">Google Play에서 받기</a>
+  -->
+  <p class="store-note">비공개 테스트를 거쳐 공개할 예정이에요.</p>
+</div>
+
+<p>나이대·성별·일상(직업)을 알려 주면 웃김이가 그 사람에게 맞는 웃긴 얘기를 매일 건네요.
+근거도 교훈도 없이 오직 웃기려고만 하는 앱이에요.</p>
+
+<h2>무엇을 하나요</h2>
+<ul>
+  <li><strong>오늘의 웃김</strong> — 앱을 열면 한 편이 바로 와요. [하나 더 웃겨 줘요]로 제한 없이 이어 받아요.</li>
+  <li><strong>다섯 종류</strong> — 아재개그·넌센스 퀴즈(답은 [정답 보기] 뒤에)·한 줄 웃김·짧은 이야기·톡 대화(마지막 한 방은 [그래서요?] 뒤에).</li>
+  <li><strong>나에게 맞춘 웃김</strong> — 학생·직장인·살림·육아·자영업·프리랜서·구직·쉬는 중과 나이대·성별 공감 편이 섞여 나와요. 웃음의 대상은 언제나 나 자신과 상황이에요.</li>
+  <li><strong>ㅋㅋ 웃었어요</strong> — 누르면 오늘 웃음과 "N일째 웃는 중"이 이어져요.</li>
+  <li><strong>웃김 모음 · 보관함</strong> — 전부 찾아 읽고, 하트로 담고, 공유해요.</li>
+</ul>
+
+<div class="shots">
+  <figure><img src="./shots/01-today.png" alt="오늘의 웃김" onerror="this.parentNode.style.display='none'"><figcaption>오늘의 웃김</figcaption></figure>
+  <figure><img src="./shots/02-card.png" alt="정답 보기" onerror="this.parentNode.style.display='none'"><figcaption>정답 보기</figcaption></figure>
+  <figure><img src="./shots/03-collection.png" alt="웃김 모음" onerror="this.parentNode.style.display='none'"><figcaption>웃김 모음</figcaption></figure>
+  <figure><img src="./shots/04-favorites.png" alt="보관함" onerror="this.parentNode.style.display='none'"><figcaption>보관함</figcaption></figure>
+</div>
+
+<div class="box">
+  <strong>앱이소답게.</strong> 광고도 인앱 결제도 없어요. 가입 없이, 인터넷 없이 써요.
+  프로필과 보관함은 이 폰에만 저장되고 개발자에게 보내지 않아요.
+</div>
+
+<h2>개인정보</h2>
+<p>이 앱은 개인정보를 수집하지 않아요. 자세한 내용은 <a href="./privacy.html">개인정보처리방침</a>을 봐 주세요.</p>
+
+<h2>문의</h2>
+<p><a href="mailto:appisoLabs@gmail.com">appisoLabs@gmail.com</a></p>
+
+<footer>
+  <p><a href="../">앱이소</a>가 만든 앱이에요.</p>
+</footer>
+</body>
+</html>
